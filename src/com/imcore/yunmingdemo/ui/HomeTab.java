@@ -70,7 +70,7 @@ public class HomeTab extends Fragment {
 		
 		
 	}
-	
+	//解析JASON
 	class ImageTask extends AsyncTask<Void, Void, Void>{
 
 		@Override
@@ -110,7 +110,7 @@ public class HomeTab extends Fragment {
 //		}
 	   
 	   }
-		
+		//根据解析出的图片URL去下载图片
 		class dawlTask extends AsyncTask<String, Void, Void> {
 			private String imgUrl;
 
