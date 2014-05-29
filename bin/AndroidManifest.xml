@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.imcore.yunmingdemo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.LoginScreenActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme0" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.SplashActivity"
+            android:label="@string/title_activity_first" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.HomeActivity"
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.HomeTab"
+            android:label="@string/title_activity_home_tab" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.MallTab"
+            android:label="@string/title_activity_mall_tab" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.MyTab"
+            android:label="@string/title_activity_my_tab" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.HomeImageFragment"
+            android:label="@string/title_activity_home_image_fragment" >
+        </activity>
+    </application>
+
+</manifest>
