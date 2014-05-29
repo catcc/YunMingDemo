@@ -4,10 +4,6 @@
     android:layout_height="match_parent"
     tools:context=".MallTab" >
     
-    <ExpandableListView
-        android:id="@+id/el_category"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-    </ExpandableListView>
+    
  
 </RelativeLayout>

@@ -1024,7 +1024,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050069;
+        public static final int action_settings=0x7f050066;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1038,7 +1038,6 @@ containing a value of this type.
         public static final int drawer_layout=0x7f05003d;
         public static final int dropdown=0x7f05000f;
         public static final int edit_query=0x7f050030;
-        public static final int el_category=0x7f050057;
         public static final int end=0x7f050013;
         public static final int et_pass=0x7f050052;
         public static final int et_user=0x7f050051;
@@ -1054,16 +1053,15 @@ containing a value of this type.
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
         public static final int img_Home_image=0x7f050040;
-        public static final int img_favorite=0x7f050063;
+        public static final int img_favorite=0x7f050062;
         public static final int img_forget=0x7f050056;
-        public static final int img_info=0x7f05005f;
+        public static final int img_info=0x7f05005e;
         public static final int img_loding=0x7f05003c;
-        public static final int img_mall=0x7f050068;
-        public static final int img_my_picture=0x7f050058;
-        public static final int img_orderlist=0x7f050060;
+        public static final int img_my_picture=0x7f050057;
+        public static final int img_orderlist=0x7f05005f;
         public static final int iv_five=0x7f050048;
         public static final int iv_four=0x7f050047;
-        public static final int iv_navi_item_icon=0x7f050065;
+        public static final int iv_navi_item_icon=0x7f050064;
         public static final int iv_one=0x7f050044;
         public static final int iv_three=0x7f050046;
         public static final int iv_two=0x7f050045;
@@ -1074,7 +1072,7 @@ containing a value of this type.
         public static final int list_item=0x7f050029;
         public static final int main_content=0x7f05003e;
         public static final int middle=0x7f050012;
-        public static final int mine_edit=0x7f05005e;
+        public static final int mine_edit=0x7f05005d;
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
@@ -1102,16 +1100,15 @@ containing a value of this type.
         public static final int tabMode=0x7f050002;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
-        public static final int tv_favorite=0x7f050064;
-        public static final int tv_mall=0x7f050067;
-        public static final int tv_my_grade=0x7f05005a;
-        public static final int tv_my_grade_number=0x7f05005b;
-        public static final int tv_my_integral=0x7f05005c;
-        public static final int tv_my_integral_number=0x7f05005d;
-        public static final int tv_my_name=0x7f050059;
-        public static final int tv_navi_item_text=0x7f050066;
-        public static final int tv_oneline=0x7f050062;
-        public static final int tv_orderlist=0x7f050061;
+        public static final int tv_favorite=0x7f050063;
+        public static final int tv_my_grade=0x7f050059;
+        public static final int tv_my_grade_number=0x7f05005a;
+        public static final int tv_my_integral=0x7f05005b;
+        public static final int tv_my_integral_number=0x7f05005c;
+        public static final int tv_my_name=0x7f050058;
+        public static final int tv_navi_item_text=0x7f050065;
+        public static final int tv_oneline=0x7f050061;
+        public static final int tv_orderlist=0x7f050060;
         public static final int tv_top=0x7f050050;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
@@ -1175,8 +1172,7 @@ containing a value of this type.
         public static final int activity_mall_tab=0x7f03001c;
         public static final int activity_my_tab=0x7f03001d;
         public static final int home_navi_tab=0x7f03001e;
-        public static final int mall_tab_fragment=0x7f03001f;
-        public static final int support_simple_spinner_dropdown_item=0x7f030020;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
     }
     public static final class menu {
         public static final int first=0x7f0d0000;
