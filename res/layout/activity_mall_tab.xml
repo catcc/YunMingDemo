@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     tools:context=".MallTab" >
     
-    
+    <ExpandableListView
+        android:id="@+id/el_mall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:groupIndicator="@null" >
+    </ExpandableListView>
  
 </RelativeLayout>

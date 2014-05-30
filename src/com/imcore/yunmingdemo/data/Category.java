@@ -1,6 +1,5 @@
 package com.imcore.yunmingdemo.data;
 
-import android.R.string;
 
 public class Category {
 	public String categoryName;

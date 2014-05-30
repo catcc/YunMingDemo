@@ -5,9 +5,7 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,7 +37,7 @@ public class LoginScreenActivity extends Activity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if(MyApplicition.xje.equals("s")){
+		if(!SharedPreferencesUtil.p){
 		setContentView(R.layout.activity_loginscreen);
 		MyApplicition.xje = "s";
 		btnEntry = (Button)findViewById(R.id.btn_entry);
@@ -50,7 +48,7 @@ public class LoginScreenActivity extends Activity implements OnClickListener{
 		
 		btnEntry.setOnClickListener(this);
 		imgForget.setOnClickListener(this);
-		}if(MyApplicition.xje.equals("ss")){
+		}else{
 			Intent intent = new Intent(this,HomeActivity.class);
 			startActivity(intent);
 			
@@ -155,8 +153,6 @@ public class LoginScreenActivity extends Activity implements OnClickListener{
 					}
 					
 					gotoHome();
-					SharedPreferences ss = LoginScreenActivity.this.getSharedPreferences("DO", Context.MODE_PRIVATE);
-					ss.edit().putBoolean("hehe", false).commit();
 					finish();
 				} else {
 					ToastUtil.showToast(LoginScreenActivity.this,
