@@ -3,6 +3,7 @@ package com.imcore.yunmingdemo.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -42,9 +43,8 @@ public class MallTab extends Fragment {
 		
 		new CategoryTask().execute();
 		try {
-			Thread.sleep(1500);
-			new SubclassTask().execute();
 			Thread.sleep(1000);
+			new SubclassTask().execute();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -55,7 +55,11 @@ public class MallTab extends Fragment {
 			@Override
 			public boolean onChildClick(ExpandableListView arg0, View arg1, int arg2,
 					int arg3, long arg4) {
-				
+				Intent intent = new Intent(getActivity(),CommodityItem.class);
+				Bundle bundle = new Bundle();
+				bundle.putLong("ComID", arg4);
+				intent.putExtra("CommId", bundle);
+				startActivity(intent);
 				return true;
 			}
 		});

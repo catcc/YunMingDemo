@@ -2,9 +2,7 @@ package com.imcore.yunmingdemo.ui;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -21,7 +19,7 @@ public class SplashActivity extends Activity {
 			@Override
 			public void run() {
 				
-				Intent lodingIntent = new Intent(SplashActivity.this,LoginScreenActivity.class);
+				Intent lodingIntent = new Intent(SplashActivity.this,HomeActivity.class);
 				SplashActivity.this.startActivity(lodingIntent);
 				SplashActivity.this.finish();
 			}

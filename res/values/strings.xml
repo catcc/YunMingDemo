@@ -21,5 +21,8 @@
     <string name="my_orderlist"> 订单记录 ： </string>
     <string name="my_favorite"> 收藏夹 ： </string>
     <string name="title_activity_home_image_fragment">HomeImageFragment</string>
-
+    <string name="title_activity_commodity">Commodity</string>
+	<string name="spi_sort">排序</string>
+	<string name="spi_screening">筛选</string>
+	<string name="back">返回</string>
 </resources>

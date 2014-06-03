@@ -50,6 +50,11 @@
             android:name="com.imcore.yunmingdemo.ui.HomeImageFragment"
             android:label="@string/title_activity_home_image_fragment" >
         </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.CommodityItem"
+            android:label="@string/title_activity_commodity" 
+            android:theme="@android:style/Theme.NoTitleBar">
+        </activity>
     </application>
 
 </manifest>
