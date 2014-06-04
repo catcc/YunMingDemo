@@ -35,14 +35,8 @@ public class HomeTab extends Fragment {
 				.inflate(R.layout.activity_home_tab, null);
 		vp = (ViewPager)rootView.findViewById(R.id.view_pager);
 		new ImageTask().execute();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		homeTabAdapter = new HomeTabAdapter();
-		vp.setAdapter(homeTabAdapter);
-
+		
 		return rootView;
 	}
 	
@@ -102,11 +96,10 @@ public class HomeTab extends Fragment {
 		
 		@Override
 		protected void onPostExecute(Void result) {
-//			for (int i = 0; i < topList.size(); i++) {
-//				new dawlTask().execute(HttpHelper.ImageURL + "/"
-//						+ ( topList.get(i)).getImageUrl());
+			vp.setAdapter(homeTabAdapter);
+
 			super.onPostExecute(result);
-//		}
+	}
 	   
 	   }
 		//根据解析出的图片URL去下载图片
@@ -126,4 +119,4 @@ public class HomeTab extends Fragment {
 	
 		
 	
-}
+

@@ -42,30 +42,50 @@ public class MallTab extends Fragment {
 		elMall = (ExpandableListView)view.findViewById(R.id.el_mall);
 		
 		new CategoryTask().execute();
-		try {
-			Thread.sleep(1000);
-			new SubclassTask().execute();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		
-		elMall.setAdapter(new ExpandAdapter());
+		
 		elMall.setOnChildClickListener(new OnChildClickListener() {
 			
 			@Override
 			public boolean onChildClick(ExpandableListView arg0, View arg1, int arg2,
 					int arg3, long arg4) {
-				Intent intent = new Intent(getActivity(),CommodityItem.class);
-				Bundle bundle = new Bundle();
-				bundle.putLong("ComID", arg4);
-				intent.putExtra("CommId", bundle);
-				startActivity(intent);
+				
+				new bundle().bundl(arg2, arg4);
 				return true;
 			}
 		});
 		return view;
 	}
-	
+	class bundle{
+	private void bundl(int arg2,long arg4){
+		Intent intent = new Intent(getActivity(),CommodityItem.class);
+		Bundle bundle = new Bundle();
+		switch (arg2){
+			case 0:
+				bundle.putLong("ComID", arg4 );
+				intent.putExtra("CommId", bundle);
+			
+				break;
+			case 1:
+				
+				bundle.putLong("ComID", arg4 + 4);
+				intent.putExtra("CommId", bundle);
+			
+				break;
+			case 2:
+				bundle.putLong("ComID", arg4 + 8);
+				intent.putExtra("CommId", bundle);
+				break;
+			case 3:
+				bundle.putLong("ComID", arg4 + 12);
+				intent.putExtra("CommId", bundle);
+				break;
+				
+		}
+		
+		startActivity(intent);
+	}
+	}
 	private class ExpandAdapter extends BaseExpandableListAdapter{
 
 		@Override
@@ -189,11 +209,13 @@ public class MallTab extends Fragment {
 				e.printStackTrace();
 			}
 			
-			
-
 			return null;
 		}
-		
+		@Override
+		protected void onPostExecute(Void result) {
+			new SubclassTask().execute();
+			super.onPostExecute(result);
+		}
 		
 	}	
 
@@ -231,6 +253,11 @@ public class MallTab extends Fragment {
 					}
 					}
 					return null;
+				}
+				@Override
+				protected void onPostExecute(Void result) {
+					elMall.setAdapter(new ExpandAdapter());
+				super.onPostExecute(result);
 				}
 
 			}
