@@ -49,43 +49,20 @@ public class MallTab extends Fragment {
 			@Override
 			public boolean onChildClick(ExpandableListView arg0, View arg1, int arg2,
 					int arg3, long arg4) {
-				
-				new bundle().bundl(arg2, arg4);
+				Intent intent = new Intent(getActivity(),CommodityItem.class);
+				Bundle bundle = new Bundle();
+				bundle.putLong("ComID", AllSList.get(arg2).get((int)arg4).getId());
+				intent.putExtra("CommId", bundle);
+				startActivity(intent);
 				return true;
 			}
 		});
 		return view;
 	}
-	class bundle{
-	private void bundl(int arg2,long arg4){
-		Intent intent = new Intent(getActivity(),CommodityItem.class);
-		Bundle bundle = new Bundle();
-		switch (arg2){
-			case 0:
-				bundle.putLong("ComID", arg4 );
-				intent.putExtra("CommId", bundle);
-			
-				break;
-			case 1:
-				
-				bundle.putLong("ComID", arg4 + 4);
-				intent.putExtra("CommId", bundle);
-			
-				break;
-			case 2:
-				bundle.putLong("ComID", arg4 + 8);
-				intent.putExtra("CommId", bundle);
-				break;
-			case 3:
-				bundle.putLong("ComID", arg4 + 12);
-				intent.putExtra("CommId", bundle);
-				break;
-				
-		}
+	
 		
-		startActivity(intent);
-	}
-	}
+		
+	
 	private class ExpandAdapter extends BaseExpandableListAdapter{
 
 		@Override
@@ -131,7 +108,6 @@ public class MallTab extends Fragment {
 
 		@Override
 		public Object getGroup(int arg0) {
-			// TODO Auto-generated method stub
 			return CNList.get(arg0);
 		}
 
@@ -198,6 +174,7 @@ public class MallTab extends Fragment {
 				Class<Category> cass = Category.class;
 				CaList = JsonUtil.toObjectList(data, cass);
 				CNList = new ArrayList<String>();
+				
 				for (int i = 0; i < CaList.size(); i++) {
 					Log.i("ee", CaList.get(i).getImageUrl() + CaList.get(i).getCategoryName());
 					String CName = CaList.get(i).getCategoryName();
