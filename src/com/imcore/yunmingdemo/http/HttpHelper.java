@@ -243,6 +243,7 @@ public class HttpHelper {
 		Iterator<String> i = keySet.iterator();
 		while (i.hasNext()) {
 			String key = i.next();
+			System.out.println("key:" +key);
 			String value = params.get(key).toString();
 			strBuffer.append(key);
 			strBuffer.append("=");

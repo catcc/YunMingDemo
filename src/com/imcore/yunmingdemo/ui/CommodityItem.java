@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
@@ -32,14 +34,14 @@ import com.imcore.yunmingdemo.http.ResponseJsonEntity;
 import com.imcore.yunmingdemo.image.ImageFetcher;
 import com.imcore.yunmingdemo.util.JsonUtil;
 
-public class CommodityItem extends Activity implements android.view.View.OnClickListener{
+public class CommodityItem extends Activity implements android.view.View.OnClickListener,OnItemClickListener{
 	private GridView gvCommodity;
 	private ListView lvCommodity;
 	private RadioButton rbtnList,rbtnGrid;
 	private Button btnSort,btnFilter;
 	private List<Commodity> myCommList;
+	private TextView tvTheme;
 	private ProgressDialog pg;
-//	private Map<String, Object> map;
 	private long id;
 	private static int sortIndex=0;
 	@Override
@@ -53,6 +55,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 		btnFilter = (Button)findViewById(R.id.btn_product_filter);
 		rbtnList = (RadioButton)findViewById(R.id.rb_list);
 		rbtnGrid = (RadioButton)findViewById(R.id.rb_grid);
+		tvTheme = (TextView)findViewById(R.id.tv_theme_name);
 		
 		init();
 		
@@ -60,21 +63,22 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 		btnFilter.setOnClickListener(this);
 		rbtnList.setOnClickListener(this);
 		rbtnGrid.setOnClickListener(this);
+		gvCommodity.setOnItemClickListener(this);
 	}
 	
 	private void init(){
 		Intent intent = getIntent();
 		Bundle bundle = intent.getBundleExtra("CommId");
 		id =  bundle.getLong("ComID");
-		new CommodityTask("",0).execute();
+		String categoryName = bundle.getString("CommName");
+		tvTheme.setText(categoryName);
+		new CommodityTask("",0,0).execute();
 	}
 
 	private class CommodityAdapter extends BaseAdapter{
 		@Override
 		public int getCount() {
-			if(id==5){
-				return 7;
-			}
+		
 			return myCommList.size();
 		}
 
@@ -86,7 +90,6 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 
 		@Override
 		public long getItemId(int arg0) {
-			// TODO Auto-generated method stub
 			return arg0;
 		}
 
@@ -104,9 +107,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 			viewHolder.tvfavotieTotal = (TextView)view.findViewById(R.id.tv_commodity_favotieTotal);
 			viewHolder.img = (ImageView)view.findViewById(R.id.img_commodity);
 			view.setTag(viewHolder);
-				if(rbtnList.isChecked()){
-					
-				}
+				
 			}else{
 				viewHolder = (ViewHolder)view.getTag();
 			}
@@ -119,6 +120,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 			viewHolder.tvPrice.setText("￥" + price);
 			viewHolder.tvsaleTotal.setText("销量："+saleTotal);
 			viewHolder.tvfavotieTotal.setText("收藏："+favotieTotal);
+			
 			return view;
 		}
 		
@@ -131,9 +133,11 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 	class CommodityTask extends AsyncTask<Void, Void, Void>{
 		private String orderBy;
 		private int desc;
-		public CommodityTask(String orderBy,int desc){
+		private int filterId;
+		public CommodityTask(String orderBy,int desc,int filterId){
 			this.desc=desc;
 			this.orderBy=orderBy;
+			this.filterId=filterId;
 		}
 		@Override
 		protected Void doInBackground(Void... arg0) {
@@ -143,6 +147,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 			map.put("id", id);
 			map.put("orderBy", orderBy);
 			map.put("desc", desc);
+			map.put("filterId",filterId);
 			RequestEntity entity = new RequestEntity(url, HttpMethod.GET, map);
 			String js;
 			try {
@@ -156,8 +161,6 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 				
 				for (int i = 0; i < myCommList.size(); i++) {
 					Log.i("ee", myCommList.get(i).getImageUrl() + myCommList.get(i).getProductName());
-					String imgUrl = myCommList.get(i).getImageUrl();
-					new ImgTask().execute(HttpHelper.ImageURL+"/"+imgUrl);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -181,19 +184,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 		
 	}
 	
-	class ImgTask extends AsyncTask<String, Void, Void> {
-		private String imgUrl;
 
-		@Override
-		protected Void doInBackground(String... params) {
-			imgUrl = params[0];
-			boolean isSucc = ImageFetcher.downLoadImage(imgUrl);
-			Log.i("img", isSucc + "");
-			return null;
-		}
-		
-			
-	}
 
 	@Override
 	public void onClick(View arg0) {
@@ -207,18 +198,18 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 			lvCommodity.setVisibility(View.VISIBLE);
 			break;
 		case R.id.btn_product_sort :
-			new AlertDialogInCommodity();
+			new SortAlertDialogInCommodity();
 			break;
 		case R.id.btn_product_filter :
-			
+			new FilterAlertDialogInCommodity();
 			break;
 		}
 	}
-	class AlertDialogInCommodity{
+	class SortAlertDialogInCommodity{
 		private String orderBy;
 		private int desc;
 		String[] sort = new String[]{"按价格升序排序","按价格降序排序","按上架时间升序排序","按上架时间降序排序","按销量降序排序","按收藏降序排序"};
-		public AlertDialogInCommodity(){
+		public SortAlertDialogInCommodity(){
 			orderBy="price";
 			desc=0;
 			new AlertDialog.Builder(CommodityItem.this).setTitle("请选择排序方式")
@@ -237,12 +228,20 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 						desc=1;
 						break;
 					case 2:
+						orderBy="createdTime";
+						desc=0;
 						break;
 					case 3:
+						orderBy="createdTime";
+						desc=1;
 						break;
 					case 4:
+						orderBy="saleTotal";
+						desc=1;
 						break;
 					case 5:
+						orderBy="favotieTotal";
+						desc=1;
 						break;
 
 					default:
@@ -255,11 +254,68 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 				@Override
 				public void onClick(DialogInterface arg0, int arg1) {
 					
-					new CommodityTask(orderBy,desc).execute();
+					new CommodityTask(orderBy,desc,0).execute();
 						
 					
 				}
 			}).setNegativeButton("取消", null).show();
 		}
+	}
+	
+	class FilterAlertDialogInCommodity{
+		private int filterId;
+		String[] sort = new String[]{"默认","0-1000","1000-2000","2000-3000",">3000"};
+		
+		public FilterAlertDialogInCommodity(){
+			filterId=0;
+			new AlertDialog.Builder(CommodityItem.this).setTitle("请选择排序方式")
+			.setSingleChoiceItems(sort, sortIndex, new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					
+					switch (arg1){
+					case 0:
+						filterId=0;
+						break;
+					case 1:
+						filterId=1;
+						break;
+					case 2:
+						filterId=2;
+						break;
+					case 3:
+						filterId=3;
+						break;
+					case 4:
+						filterId=4;
+						break;
+					
+
+					default:
+						break;
+					}
+					sortIndex=arg1;
+				}
+			}).setPositiveButton("确认", new OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+					
+					new CommodityTask("",0,filterId).execute();
+						
+					
+				}
+			}).setNegativeButton("取消", null).show();
+		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		Intent intent = new Intent(CommodityItem.this,Productdetail.class);
+		Bundle bundle = new Bundle();
+		bundle.putLong("productId", myCommList.get(arg2).getId());
+		intent.putExtra("ProductId", bundle);
+		startActivity(intent);
 	}
 }

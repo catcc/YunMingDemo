@@ -52,6 +52,7 @@ public class MallTab extends Fragment {
 				Intent intent = new Intent(getActivity(),CommodityItem.class);
 				Bundle bundle = new Bundle();
 				bundle.putLong("ComID", AllSList.get(arg2).get((int)arg4).getId());
+				bundle.putString("CommName", AllSList.get(arg2).get((int)arg4).getCategoryName());
 				intent.putExtra("CommId", bundle);
 				startActivity(intent);
 				return true;

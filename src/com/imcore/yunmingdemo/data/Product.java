@@ -1,9 +1,10 @@
 package com.imcore.yunmingdemo.data;
 
-public class Commodity {
+public class Product {
 	public long id;
 	public long categoryId;
 	public String productName;
+	public String altName;
 	public int status;
 	public String shortName;
 	public String shortDesc;
@@ -40,6 +41,12 @@ public class Commodity {
 	}
 	public void setProductName(String productName) {
 		this.productName = productName;
+	}
+	public String getAltName() {
+		return altName;
+	}
+	public void setAltName(String altName) {
+		this.altName = altName;
 	}
 	public int getStatus() {
 		return status;
@@ -155,8 +162,6 @@ public class Commodity {
 	public void setCommentTotal(long commentTotal) {
 		this.commentTotal = commentTotal;
 	}
-	
-	
 	
 	
 }

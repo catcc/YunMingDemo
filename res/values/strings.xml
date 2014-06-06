@@ -22,7 +22,10 @@
     <string name="my_favorite"> 收藏夹 ： </string>
     <string name="title_activity_home_image_fragment">HomeImageFragment</string>
     <string name="title_activity_commodity">Commodity</string>
-	<string name="btn_sort">排序</string>
-	<string name="btn_screening">筛选</string>
-	<string name="back">返回</string>
+    <string name="btn_sort">排序</string>
+    <string name="btn_screening">筛选</string>
+    <string name="back">返回</string>
+    <string name="title_activity_productdetail">Productdetail</string>
+	<string name="tv_Evaluation">评价详情</string>
+	<string name="commodity_information">商品信息</string>
 </resources>

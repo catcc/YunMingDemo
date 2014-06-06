@@ -52,8 +52,12 @@
         </activity>
         <activity
             android:name="com.imcore.yunmingdemo.ui.CommodityItem"
-            android:label="@string/title_activity_commodity" 
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:label="@string/title_activity_commodity"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.Productdetail"
+            android:label="@string/title_activity_productdetail" >
         </activity>
     </application>
 
