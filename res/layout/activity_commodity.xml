@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+  
+	<RelativeLayout
+	    android:id="@+id/rl_up"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/title_bg">
+	    <TextView 
+	        android:id="@+id/tv_back"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/back_normal"
+	        android:layout_centerVertical="true"
+	        android:text="@string/back"
+	        />
+	    <TextView 
+	        android:id="@+id/tv_theme_name"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:textSize="20sp"/>
+	</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/layout_product_top"
+        android:layout_below="@id/rl_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gray_bg"
+        android:padding="10dp"
+        android:descendantFocusability="blocksDescendants" >
+
+        <Button
+            android:id="@+id/btn_product_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mall_gray_btn_normal"
+            android:drawableRight="@drawable/chevron_down"
+            android:text="@string/btn_sort"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:id="@+id/btn_product_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/btn_product_sort"
+            android:background="@drawable/mall_gray_btn_normal"
+            android:drawableRight="@drawable/chevron_down"
+            android:text="@string/btn_screening"
+            android:textColor="#ffffff" />
+
+        <RadioGroup
+            android:id="@+id/rg_show_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true">
+            <RadioButton 
+                android:id="@+id/rb_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/show_as_list"
+                android:button="@null"/>
+            <RadioButton 
+                android:id="@+id/rb_grid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 android:background="@drawable/show_as_grid"
+                android:layout_marginLeft="10dp"
+                android:checked="true"
+                android:button="@null"/>
+        </RadioGroup>
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gv_Commodity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_product_top"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:columnWidth="170dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:background="#FFFFFF"
+        android:verticalSpacing="10dp" />
+
+    <ListView
+        android:id="@+id/lv_product_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:background="#FFFFFF"
+        android:layout_below="@+id/layout_product_top" />
+
+</RelativeLayout>
