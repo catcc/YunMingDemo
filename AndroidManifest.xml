@@ -59,6 +59,19 @@
             android:name="com.imcore.yunmingdemo.ui.Productdetail"
             android:label="@string/title_activity_productdetail" >
         </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.ProductDetailImages"
+            android:label="@string/title_activity_product_detail_images" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.ProductInfo"
+            android:label="@string/title_activity_product_info" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.ProductEvaluation"
+            android:label="@string/title_activity_product_e"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
     </application>
 
 </manifest>

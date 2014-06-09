@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProductInfo" >
+
+    <TextView
+        android:id="@+id/tv_productNameInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:textSize="32sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_productNameInfo"
+        android:layout_margin="20dp"
+        android:background="@drawable/edit_bg" >
+
+        <TextView
+            android:id="@+id/tv_origin"
+            android:ems="4"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/origin" />
+
+        <TextView
+            android:id="@+id/tv_origindetail"
+            android:layout_toRightOf="@id/tv_origin"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/rl_info_one"
+            android:layout_below="@id/tv_origin"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EFEFEF" />
+
+        <TextView
+            android:id="@+id/tv_storage"
+            android:ems="4"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/rl_info_one"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/storage" />
+
+        <TextView
+            android:id="@+id/tv_storagedetail"
+            android:layout_below="@id/rl_info_one"
+            android:layout_toRightOf="@id/tv_storage"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/rl_info_two"
+            android:layout_below="@id/tv_storage"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EFEFEF" />
+
+        <TextView
+            android:id="@+id/tv_ShelfLife"
+            android:ems="4"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/rl_info_two"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ShelfLife" />
+
+        <TextView
+            android:id="@+id/tv_ShelfLifedetail"
+            android:layout_below="@id/rl_info_two"
+            android:layout_toRightOf="@id/tv_ShelfLife"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/rl_info_three"
+            android:layout_below="@id/tv_ShelfLife"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EFEFEF" />
+
+        <TextView
+            android:id="@+id/tv_makingProcess"
+            android:ems="4"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/rl_info_three"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/makingProcess" />
+
+        <TextView
+            android:id="@+id/tv_makingProcessdetail"
+            android:layout_below="@id/rl_info_three"
+            android:layout_toRightOf="@id/tv_makingProcess"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@+id/rl_info_four"
+            android:layout_below="@id/tv_makingProcess"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EFEFEF" />
+
+        <TextView
+            android:id="@+id/tv_textture"
+            android:ems="4"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/rl_info_four"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/origin" />
+
+        <TextView
+            android:id="@+id/tv_textturedetail"
+            android:layout_below="@id/rl_info_four"
+            android:layout_toRightOf="@id/tv_textture"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+</RelativeLayout>

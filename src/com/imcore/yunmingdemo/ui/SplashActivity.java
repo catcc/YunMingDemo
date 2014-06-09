@@ -19,7 +19,7 @@ public class SplashActivity extends Activity {
 			@Override
 			public void run() {
 				
-				Intent lodingIntent = new Intent(SplashActivity.this,HomeActivity.class);
+				Intent lodingIntent = new Intent(SplashActivity.this,LoginScreenActivity.class);
 				SplashActivity.this.startActivity(lodingIntent);
 				SplashActivity.this.finish();
 			}
