@@ -38,5 +38,17 @@
     <string name="textture">口感</string>
     <string name="title_activity_product_e">ProductE</string>
     <string name="btn_publish">发表</string>
+    <string name="title_activity_packing_choice">PackingChoice</string>
+    <string name="btn_choice_packing">选择包装</string>
+    <string name="weight">重量</string>
+    <string name="format">规格</string>
+    <string name="btn_add">加入购物车</string>
+    <string name="has_choice">已选</string>
+    <string name="packing">包装</string>
+    <string name="price">价格</string>
+    <string name="title_activity_shopping">Shopping</string>
+    <string name="buy">购买</string>
+    <string name="editor">编辑</string>
+    <string name="complete">完成</string>
 
 </resources>

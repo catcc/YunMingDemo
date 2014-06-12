@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Shopping" >
+
+    <RelativeLayout
+        android:id="@+id/rl_shop"
+        android:background="@drawable/title_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+       <TextView 
+	        android:id="@+id/tv_shop"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/back_normal"
+	        android:layout_centerVertical="true"
+	        android:visibility="visible"
+	        android:gravity="center"
+	        android:text="@string/back"
+	        />
+
+        <TextView
+            android:id="@+id/tv_shop_editor"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:visibility="visible"
+            android:background="@drawable/edit_btn_normal"
+            android:text="@string/editor" />
+        
+        <TextView
+            android:id="@+id/tv_shop_complete"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/edit_btn_normal"
+            android:text="@string/complete" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_shop_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_shop" >
+
+        <ListView
+            android:id="@+id/lv_shopping_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hello_world" />
+
+        <ListView
+            android:id="@+id/lv_shopping_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/hello_world" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_shop_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#787070" >
+
+        <TextView
+            android:id="@+id/tv_shopping_original_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/tv_shopping_member_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_shopping_original_cost"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_shopping_buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/red_btn_normal"
+            android:text="@string/buy" />
+    </RelativeLayout>
+
+</RelativeLayout>

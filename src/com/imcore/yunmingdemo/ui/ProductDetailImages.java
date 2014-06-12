@@ -78,7 +78,7 @@ public class ProductDetailImages extends Activity {
 				viewHolder = (ProductViewHolder)view.getTag();
 			}
 			
-			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ pImageList.get(arg0).getImageUrl(), viewHolder.img);
+			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ pImageList.get(arg0).imageUrl, viewHolder.img);
 			return view;
 		}
 		
@@ -109,7 +109,7 @@ public class ProductDetailImages extends Activity {
 				Log.i("jj", data);
 				pImageList = JsonUtil.toObjectList(data, ProductImages.class);
 					for (int i = 0; i < pImageList.size(); i++) {
-						Log.i("ee", pImageList.get(i).getImageUrl() + pImageList.get(i).sku);
+						Log.i("ee", pImageList.get(i).imageUrl + pImageList.get(i).sku);
 					}
 			} catch (Exception e) {
 				e.printStackTrace();

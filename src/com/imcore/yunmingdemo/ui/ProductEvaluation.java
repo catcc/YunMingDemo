@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -106,12 +108,14 @@ public class ProductEvaluation extends Activity {
 	}
 	//执行GET请求
 	class EvaluationGetTask extends AsyncTask<Void, Void, Void>{
-
+		
 		@Override
 		protected Void doInBackground(Void... arg0) {
 			String url = "/product/comments/list.do";
+			
 			Map<String,Object> map = new HashMap<String, Object>();
 			map.put("id", id);
+			
 			RequestEntity entity = new RequestEntity(url, HttpMethod.GET, map);
 			String js;
 			try {
@@ -135,13 +139,21 @@ public class ProductEvaluation extends Activity {
 	
 	//执行POST请求
 	class EvaluationPostTask extends AsyncTask<Void, Void, Void>{
-
+		private static final String USER_INFO = "user_info";
+		private static final String USER_ID = "user_id";
+		private static final String TOKEN = "token";
+		private SharedPreferences sp = ProductEvaluation.this.getSharedPreferences(USER_INFO,
+				Context.MODE_PRIVATE);
 		@Override
 		protected Void doInBackground(Void... arg0) {
 			String url = "/product/comments/add.do";
+			long userId= sp.getLong(USER_ID, 0);
+			String token = sp.getString(TOKEN, "");
 			Map<String,Object> map = new HashMap<String, Object>();
 			map.put("id", id);
 			map.put("comment", edCommen.getText()+"");
+			map.put("userId", userId);
+			map.put("token", token);
 			RequestEntity entity = new RequestEntity(url, HttpMethod.POST, map);
 			String js;
 			try {

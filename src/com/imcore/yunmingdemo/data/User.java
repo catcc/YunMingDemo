@@ -1,33 +1,32 @@
 package com.imcore.yunmingdemo.data;
 
 public class User {
-	public String userId;
-	public String token;
-	public String phoneNumber;
+	public String store;
+	public int status;
+	public String createdTime;
+	public int newOrderNumber;
+	public String userPositionTracking;
+	public String userDetails;
 	public String password;
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	public String getToken() {
-		return token;
-	}
-	public void setToken(String token) {
-		this.token = token;
-	}
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
+	public boolean online;
+	public long id;
+	public long identity;
+	public String phoneNumber;
+	public String token;
+	public String company;
+	public String avatarUrl;
+	public String device;
+	public String grade;
+	public String userName;
+	public String pushMessage;
+	public String updatedTime;
+	public String totalPoints;
+	public String jobTitle;
+	public String salt;
+	public boolean isSaved = false;
+	public String PassWord;
 }
+
+
+	
+	

@@ -5,7 +5,9 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,13 +19,13 @@ import android.widget.ImageView;
 
 import com.imcore.yunmingdemo.R;
 import com.imcore.yunmingdemo.application.MyApplicition;
-import com.imcore.yunmingdemo.data.SharedPreferencesUtil;
 import com.imcore.yunmingdemo.data.User;
 import com.imcore.yunmingdemo.http.HttpHelper;
 import com.imcore.yunmingdemo.http.RequestEntity;
 import com.imcore.yunmingdemo.http.ResponseJsonEntity;
 import com.imcore.yunmingdemo.util.ConnectivityUtil;
 import com.imcore.yunmingdemo.util.JsonUtil;
+import com.imcore.yunmingdemo.util.SharedPreferencesUtil;
 import com.imcore.yunmingdemo.util.TextUtil;
 import com.imcore.yunmingdemo.util.ToastUtil;
 
@@ -33,11 +35,14 @@ public class LoginScreenActivity extends Activity implements OnClickListener{
 	private EditText etUser;
 	private EditText etPassword;
 	private ProgressDialog pgDialog;
+	private static final String USER_INFO = "user_info";
+	private static final String PHONENUMBER = "phone_number";
+	private static final String REAL_PASSWORD = "PassWord";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if(!SharedPreferencesUtil.p){
+		
 		setContentView(R.layout.activity_loginscreen);
 		MyApplicition.xje = "s";
 		btnEntry = (Button)findViewById(R.id.btn_entry);
@@ -48,11 +53,12 @@ public class LoginScreenActivity extends Activity implements OnClickListener{
 		
 		btnEntry.setOnClickListener(this);
 		imgForget.setOnClickListener(this);
-		}else{
-			Intent intent = new Intent(this,HomeActivity.class);
-			startActivity(intent);
 			
-			LoginScreenActivity.this.finish();
+		SharedPreferences sp = this.getSharedPreferences(USER_INFO,
+				Context.MODE_PRIVATE);
+		if( sp!=null){
+			etUser.setText(sp.getString(PHONENUMBER, ""));
+			etPassword.setText(sp.getString(REAL_PASSWORD, ""));
 		}
 		
 	}
@@ -120,7 +126,6 @@ public class LoginScreenActivity extends Activity implements OnClickListener{
 				try {
 					jsonResponse = HttpHelper.execute(entity);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -148,9 +153,10 @@ public class LoginScreenActivity extends Activity implements OnClickListener{
 					// 保存账号密码
 					if (user != null) {
 						SharedPreferencesUtil spUtil = new SharedPreferencesUtil(LoginScreenActivity.this);
-						spUtil.SharedPreferencesSave(user);
-						
-					}
+						user.isSaved = true;
+						user.PassWord = "111111";
+						spUtil.saveUserInfo(user);
+						}
 					
 					gotoHome();
 					finish();
@@ -192,5 +198,5 @@ public class LoginScreenActivity extends Activity implements OnClickListener{
 			}
 			return true;
 	 }
-	 
+	
 }

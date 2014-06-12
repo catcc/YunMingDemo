@@ -64,6 +64,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 		rbtnList.setOnClickListener(this);
 		rbtnGrid.setOnClickListener(this);
 		gvCommodity.setOnItemClickListener(this);
+		lvCommodity.setOnItemClickListener(this);
 	}
 	
 	private void init(){

@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -37,6 +38,7 @@ public class Productdetail extends Activity implements OnClickListener{
 	private TextView tvProductName,tvProductPrice,tvProductDesc,tvProductPacking,
 			tvProductItems;
 	private RelativeLayout rlPack,rlDetail,rlEvaluation;
+	private Button btnChoicePacking;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,6 +56,8 @@ public class Productdetail extends Activity implements OnClickListener{
 		rlPack = (RelativeLayout)findViewById(R.id.rl_pro_four);
 		rlDetail = (RelativeLayout)findViewById(R.id.rl_pro_eight);
 		rlEvaluation = (RelativeLayout)findViewById(R.id.rl_pro_six);
+		
+		btnChoicePacking = (Button)findViewById(R.id.btn_choice_packing);
 		
 		new ProductDetailTask().execute();
 		glProtuctImage = (Gallery)findViewById(R.id.gl_productImage);
@@ -94,7 +98,7 @@ public class Productdetail extends Activity implements OnClickListener{
 			}else{
 				viewHolder = (ProductViewHolder)view.getTag();
 			}
-			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ pImageList.get(arg0).getImageUrl(), viewHolder.img);
+			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ pImageList.get(arg0).imageUrl, viewHolder.img);
 			return view;
 		}
 		
@@ -117,6 +121,7 @@ public class Productdetail extends Activity implements OnClickListener{
 			rlPack.setOnClickListener(Productdetail.this);
 			rlDetail.setOnClickListener(Productdetail.this);
 			rlEvaluation.setOnClickListener(Productdetail.this);
+			btnChoicePacking.setOnClickListener(Productdetail.this);
 			
 			super.onPostExecute(result);
 		}
@@ -137,7 +142,7 @@ public class Productdetail extends Activity implements OnClickListener{
 				items = JsonUtil.toJsonStrList(product.items);
 					Log.i("ee", product.sku + product.altName);
 					for (int i = 0; i < pImageList.size(); i++) {
-						Log.i("ee", pImageList.get(i).getImageUrl() + pImageList.get(i).sku);
+						Log.i("ee", pImageList.get(i).imageUrl + pImageList.get(i).sku);
 					}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -175,6 +180,13 @@ public class Productdetail extends Activity implements OnClickListener{
 				intent.putExtra("productInfo", bundle);
 				startActivity(intent);
 				break;	
+				
+			case R.id.btn_choice_packing:
+				intent.setClass(Productdetail.this, PackingChoice.class);
+				bundle.putInt("productId", product.id);
+				intent.putExtra("productInfo", bundle);
+				startActivity(intent);
+				break;
 		}
 		
 	}

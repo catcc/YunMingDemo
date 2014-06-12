@@ -23,7 +23,8 @@
         </activity>
         <activity
             android:name="com.imcore.yunmingdemo.ui.SplashActivity"
-            android:label="@string/title_activity_first" >
+            android:label="@string/title_activity_first"
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -71,6 +72,15 @@
             android:name="com.imcore.yunmingdemo.ui.ProductEvaluation"
             android:label="@string/title_activity_product_e"
             android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.PackingChoice"
+            android:label="@string/title_activity_packing_choice" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.Shopping"
+            android:label="@string/title_activity_shopping"
+            android:theme="@style/AppBaseTheme0" >
         </activity>
     </application>
 
