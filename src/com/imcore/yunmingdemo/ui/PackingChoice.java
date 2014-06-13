@@ -7,7 +7,6 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
@@ -112,7 +111,7 @@ public class PackingChoice extends Activity implements android.view.View.OnClick
 			TextView tvChoice;
 		}
 	}
-
+	
 	class GalleryDetailAdapter extends BaseAdapter{
 		
 		@Override
@@ -154,6 +153,8 @@ public class PackingChoice extends Activity implements android.view.View.OnClick
 			ImageView img;
 		}
 	}
+	
+	
 	
 	class PackingChoiceTask extends AsyncTask<Void, Void, Void>{
 		private TextView tvChoice;

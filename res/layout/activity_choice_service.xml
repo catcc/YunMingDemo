@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8E8D8"
+    tools:context=".ChoiceService" >
+
+    <RelativeLayout
+        android:id="@+id/rl_cs_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bg" >
+
+        <TextView
+            android:id="@+id/tv_co_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back_normal"
+            android:gravity="center"
+            android:text="@string/back" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_cs_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_cs_one" >
+
+        <TextView
+            android:id="@+id/tv_cs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/choiceServiceDesc"
+            android:textSize="20sp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_cs_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_cs"
+            android:layout_margin="10dp"
+            android:background="@drawable/edit_bg" >
+
+            <RelativeLayout
+                android:id="@+id/rl_cs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/img_check_employee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/round_radio_checked" />
+
+                <TextView
+                    android:id="@+id/tv_cs_employeeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/img_check_employee"
+                    android:layout_margin="10dp"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/img_chevron_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/chevron" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_cs_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/rl_cs"
+                android:background="#E0E8E0" />
+
+            <RelativeLayout
+                android:id="@+id/rl_cs_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_cs_line" >
+
+                <TextView
+                    android:id="@+id/tv_cs_choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="@string/choiceService"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/img_chevron_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/chevron" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_cs_line_two"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/rl_cs_four"
+                android:background="#E0E8E0" />
+
+            <ListView
+                android:id="@+id/lv_cs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_cs_line_two"
+                android:visibility="gone" >
+            </ListView>
+            <TextView
+                android:id="@+id/tv_csa_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp" />
+
+            <TextView
+                android:id="@+id/tv_csa_store"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp" />
+
+            <TextView
+                android:id="@+id/tv_csa_phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_csa_name"
+                android:layout_margin="10dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+	<RelativeLayout 
+	    android:id="@+id/cs_five"
+	    android:layout_width="match_parent"
+	    android:layout_alignParentBottom="true"
+	    android:background="#707070"
+	    android:layout_height="wrap_content">
+	    <Button 
+	        android:id="@+id/btn_cs_next"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="下一步"
+	        android:textSize="20sp"
+	        android:background="@drawable/red_btn_normal"/>
+	    
+	</RelativeLayout>
+</RelativeLayout>

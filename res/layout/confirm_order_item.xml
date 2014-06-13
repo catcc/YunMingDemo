@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/img_ConfirmOrder"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_margin="10dp"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/tv_ConfirmOrder_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/img_ConfirmOrder"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_ConfirmOrder_pack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_ConfirmOrder_name"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/img_ConfirmOrder"
+        android:textSize="18sp" />
+    
+    <TextView
+        android:id="@+id/tv_ConfirmOrder_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_ConfirmOrder_name"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/tv_ConfirmOrder_pack"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_ConfirmOrder_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_ConfirmOrder_pack"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/img_ConfirmOrder"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_ConfirmOrder_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@id/tv_ConfirmOrder_pack"
+        android:layout_toRightOf="@id/tv_ConfirmOrder_price"
+        android:textSize="18sp" />
+
+ 
+    
+
+</RelativeLayout>

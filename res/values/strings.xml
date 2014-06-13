@@ -50,5 +50,13 @@
     <string name="buy">购买</string>
     <string name="editor">编辑</string>
     <string name="complete">完成</string>
+    <string name="title_activity_confirm_order">ConfirmOrder</string>
+    <string name="specify_service">指定客服</string>
+    <string name="submit">提交</string>
+    <string name="title_activity_choice_service">ChoiceService</string>
+    <string name="choiceServiceDesc">选择为您服务的客服专员</string>
+    <string name="choiceService">选择客服</string>
+    <string name="title_activity_employee_detail">EmployeeDetail</string>
+    <string name="title_activity_contact_the_store">ContactTheStore</string>
 
 </resources>

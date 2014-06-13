@@ -36,6 +36,7 @@ public class Shopping extends Activity implements OnClickListener{
 	private long productId;
 	private String sku;
 	private TextView tvOriginalCost,tvMemberPrice,tvShop,tvShopEditor,tvComplete;
+	private Button btnBuy;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,9 +55,11 @@ public class Shopping extends Activity implements OnClickListener{
 		tvShopEditor = (TextView)findViewById(R.id.tv_shop_editor);
 		tvComplete = (TextView)findViewById(R.id.tv_shop_complete);
 		
+		btnBuy = (Button)findViewById(R.id.btn_shopping_buy);
+		
 		tvShopEditor.setOnClickListener(this);
 		tvComplete.setOnClickListener(this);
-		
+		btnBuy.setOnClickListener(this);
 		
 		
 		new ShoppingPostTask(productId,1,sku).execute();
@@ -114,7 +117,6 @@ public class Shopping extends Activity implements OnClickListener{
 		
 		class ProductViewHolder{
 			ImageView img;
-			Button btn;
 			TextView tvName,tvPack,tvPrice,tvNumber;
 		}
 	}
@@ -211,8 +213,8 @@ public class Shopping extends Activity implements OnClickListener{
 		protected void onPostExecute(Void result) {
 			lvShoppingStart.setAdapter(new ShoppingLvStartAdapter());
 			lvShoppingEnd.setAdapter(new ShoppingLvEndAdapter());
-			tvOriginalCost.setText("原价"+shoppingAll.totalAmount);
-			tvMemberPrice.setText("会员价"+shoppingAll.discount);
+			tvOriginalCost.setText("原价:"+"￥"+shoppingAll.totalAmount);
+			tvMemberPrice.setText("会员价:"+"￥"+shoppingAll.discount);
 			super.onPostExecute(result);
 		}
 		@Override
@@ -341,6 +343,7 @@ public class Shopping extends Activity implements OnClickListener{
 	
 	@Override
 	public void onClick(View arg0) {
+		Intent intent = new Intent();
 		switch (arg0.getId()) {
 		case R.id.tv_shop_editor:
 			lvShoppingEnd.setVisibility(View.VISIBLE);
@@ -356,6 +359,14 @@ public class Shopping extends Activity implements OnClickListener{
 			tvShopEditor.setVisibility(View.VISIBLE);
 			tvComplete.setVisibility(View.GONE);
 			tvShop.setVisibility(View.VISIBLE);
+			break;
+			
+		case R.id.btn_shopping_buy:
+			intent.setClass(Shopping.this, ChoiceService.class);
+			Bundle bundle = new Bundle();
+			bundle.putLong("orderId", shoppingAll.id);
+			intent.putExtra("ConfirmOrder", bundle);
+			startActivity(intent);
 			break;
 		default:
 			break;

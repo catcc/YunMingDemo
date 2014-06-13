@@ -112,11 +112,11 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 			}else{
 				viewHolder = (ViewHolder)view.getTag();
 			}
-			String Name = myCommList.get(arg0).getProductName();
-			long price = myCommList.get(arg0).getPrice();
-			long saleTotal = myCommList.get(arg0).getSaleTotal();
-			long favotieTotal = myCommList.get(arg0).getFavotieTotal();
-			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ myCommList.get(arg0).getImageUrl(), viewHolder.img);
+			String Name = myCommList.get(arg0).productName;
+			long price = myCommList.get(arg0).price;
+			long saleTotal = myCommList.get(arg0).saleTotal;
+			long favotieTotal = myCommList.get(arg0).favotieTotal;
+			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ myCommList.get(arg0).imageUrl, viewHolder.img);
 			viewHolder.tvName.setText(Name);
 			viewHolder.tvPrice.setText("￥" + price);
 			viewHolder.tvsaleTotal.setText("销量："+saleTotal);
@@ -161,7 +161,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 				myCommList = JsonUtil.toObjectList(data, cla);
 				
 				for (int i = 0; i < myCommList.size(); i++) {
-					Log.i("ee", myCommList.get(i).getImageUrl() + myCommList.get(i).getProductName());
+					Log.i("ee", myCommList.get(i).imageUrl + myCommList.get(i).productName);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -315,7 +315,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		Intent intent = new Intent(CommodityItem.this,Productdetail.class);
 		Bundle bundle = new Bundle();
-		bundle.putLong("productId", myCommList.get(arg2).getId());
+		bundle.putLong("productId", myCommList.get(arg2).id);
 		intent.putExtra("ProductId", bundle);
 		startActivity(intent);
 	}

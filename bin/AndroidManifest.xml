@@ -82,6 +82,25 @@
             android:label="@string/title_activity_shopping"
             android:theme="@style/AppBaseTheme0" >
         </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.ConfirmOrder"
+            android:label="@string/title_activity_confirm_order"
+            android:theme="@style/AppBaseTheme0" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.ChoiceService"
+            android:label="@string/title_activity_choice_service"
+            android:theme="@style/AppBaseTheme0" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.EmployeeDetail"
+            android:label="@string/title_activity_employee_detail"
+            android:theme="@style/AppBaseTheme0" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.ContactTheStore"
+            android:label="@string/title_activity_contact_the_store" >
+        </activity>
     </application>
 
 </manifest>

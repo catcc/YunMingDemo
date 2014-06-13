@@ -2,14 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeImageFragment" >
+    tools:context=".ContactTheStore" >
 
-    <ImageView
-        android:id="@+id/img_Home_image"
+    <ListView
+        android:id="@+id/lv_store"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:contentDescription="@null"/>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

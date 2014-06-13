@@ -3,6 +3,7 @@ package com.imcore.yunmingdemo.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ public class MallTab extends Fragment {
 	private List<String> SNList;
 	private List<List<Subclass>> AllSList;
 	private List<List<String>> AllSNList;
+	private ProgressDialog pg;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -139,7 +141,7 @@ public class MallTab extends Fragment {
 				gvh =(GroupViewHolder)view.getTag();
 			}
 			String gruopText = CNList.get(groupPosition);
-			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ CaList.get(groupPosition).getImageUrl(), gvh.imgCategory);
+			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ CaList.get(groupPosition).imageUrl, gvh.imgCategory);
 			gvh.Tvcategory.setText(gruopText);
 			return view;
 		}
@@ -163,6 +165,11 @@ public class MallTab extends Fragment {
 	//解析大类
 	class CategoryTask extends AsyncTask<Void, Void, Void>{
 		@Override
+		protected void onPreExecute() {
+			pg = ProgressDialog.show(getActivity(), "芸茗茶叶", "正在加载");
+			super.onPreExecute();
+		}
+		@Override
 		protected Void doInBackground(Void... params) {
 			String url = "/category/list.do";
 			RequestEntity entity = new RequestEntity(url, 0, null);
@@ -177,11 +184,9 @@ public class MallTab extends Fragment {
 				CNList = new ArrayList<String>();
 				
 				for (int i = 0; i < CaList.size(); i++) {
-					Log.i("ee", CaList.get(i).getImageUrl() + CaList.get(i).getCategoryName());
-					String CName = CaList.get(i).getCategoryName();
-					String CUrl = CaList.get(i).getImageUrl();
+					Log.i("ee", CaList.get(i).imageUrl + CaList.get(i).categoryName);
+					String CName = CaList.get(i).categoryName;
 					CNList.add(CName);
-					new ImgTask().execute(HttpHelper.ImageURL+"/"+CUrl);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -222,9 +227,7 @@ public class MallTab extends Fragment {
 						for (int j = 0; j < SList.size(); j++) {
 							Log.i("r", SList.get(j).getImageUrl() + SList.get(j).getCategoryName());
 							String SName = SList.get(j).getCategoryName();
-							String SUrl = SList.get(j).getImageUrl();
 							SNList.add(SName);
-							new ImgTask().execute(HttpHelper.ImageURL+"/"+SUrl);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -234,24 +237,13 @@ public class MallTab extends Fragment {
 				}
 				@Override
 				protected void onPostExecute(Void result) {
+					
 					elMall.setAdapter(new ExpandAdapter());
+					pg.dismiss();
 				super.onPostExecute(result);
 				}
 
 			}
 		
 	
-		//下载图片
-		class ImgTask extends AsyncTask<String, Void, Void> {
-			private String imgUrl;
-
-			@Override
-			protected Void doInBackground(String... params) {
-				imgUrl = params[0];
-				boolean isSucc = ImageFetcher.downLoadImage(imgUrl);
-				Log.i("img", isSucc + "");
-				return null;
-			}
-				
-		}
 }

@@ -6,9 +6,9 @@ public class ProductImages {
 	public String createdTime;
 	public String imageUrl;
 	public String description;
+	public String updatedTime;
 	public int type;
 	public String sku;
-	public String updatedTime;
 
 	
 }
