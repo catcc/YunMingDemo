@@ -43,9 +43,10 @@ public class Shopping extends Activity implements OnClickListener{
 		setContentView(R.layout.activity_shopping);
 		Intent intent = getIntent();
 		Bundle bundle = intent.getBundleExtra("Shopping");
+		if(intent.getBundleExtra("Shopping")!=null){
 		productId = bundle.getLong("Shopping_productId");
 		sku = bundle.getString("Shopping_sku");
-		
+		}
 		lvShoppingStart = (ListView)findViewById(R.id.lv_shopping_start);
 		lvShoppingEnd = (ListView)findViewById(R.id.lv_shopping_end);
 		
@@ -61,8 +62,11 @@ public class Shopping extends Activity implements OnClickListener{
 		tvComplete.setOnClickListener(this);
 		btnBuy.setOnClickListener(this);
 		
-		
+		if(intent.getBundleExtra("Shopping")!=null){
 		new ShoppingPostTask(productId,1,sku).execute();
+		}else{
+			new ShoppingGetTask().execute();
+		}
 		
 	}
 

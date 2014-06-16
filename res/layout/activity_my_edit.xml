@@ -1,0 +1,187 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyEdit" >
+
+    <RelativeLayout
+        android:id="@+id/rl_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bg" >
+
+        <TextView
+            android:id="@+id/tv_edit_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_normal"
+            android:text="@string/back" />
+
+        <TextView
+            android:id="@+id/tv_edit_theme_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="编辑"
+            android:textSize="20sp" />
+        
+        <TextView
+            android:id="@+id/tv_edit_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/edit_btn_normal"
+            android:text="@string/edit_save" />
+    </RelativeLayout>
+    
+    <RelativeLayout 
+        android:id="@+id/rl_edit_one"
+        android:layout_below="@id/rl_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_bg" >
+        
+       <ImageView 
+           android:id="@+id/img_user_picture"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:src="@drawable/no_picture"
+           android:contentDescription="@null"/>
+       <ImageView
+            android:id="@+id/img_eidt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@drawable/chevron" />
+        
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/rl_edit_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_edit_one"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/edit_bg"
+        android:contentDescription="@null" >
+
+        <RelativeLayout
+            android:id="@+id/rl_edit_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/img_edit_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:contentDescription="@null"
+                android:src="@drawable/mine_orderlist" />
+
+            <TextView
+                android:id="@+id/tv__edit_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@id/img_edit_username"
+                android:text="@string/my_orderlist"
+                android:textSize="23sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_oneline"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/rl_edit_three"
+            android:background="#EFEFE7" />
+
+        <RelativeLayout
+            android:id="@+id/rl_my_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_oneline" >
+
+            <ImageView
+                android:id="@+id/img_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:contentDescription="@null"
+                android:src="@drawable/mine_favorite" />
+
+            <TextView
+                android:id="@+id/tv_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@id/img_favorite"
+                android:text="@string/my_favorite"
+                android:textSize="23sp" />
+
+            <ImageView
+                android:id="@+id/img_MY_chevron_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/chevron" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_oneline_two"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/rl_my_one"
+            android:background="#EFEFE7" />
+
+        <RelativeLayout
+            android:id="@+id/rl_my_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_my_one" >
+
+            <ImageView
+                android:id="@+id/img_shopping_car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:contentDescription="@null"
+                android:src="@drawable/mine_shopping_cart" />
+
+            <TextView
+                android:id="@+id/tv_shopping_car"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@id/img_shopping_car"
+                android:text="@string/shopping_car"
+                android:textSize="23sp" />
+
+            <ImageView
+                android:id="@+id/img_MY_chevron_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@null"
+                android:src="@drawable/chevron" />
+        </RelativeLayout>
+    </RelativeLayout>
+    
+</RelativeLayout>

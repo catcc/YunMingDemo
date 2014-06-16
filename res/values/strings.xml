@@ -18,8 +18,8 @@
     <string name="title_activity_my_tab">MyTab</string>
     <string name="my_grade"> 等級 ： </string>
     <string name="my_integral"> 积分 ： </string>
-    <string name="my_orderlist"> 订单记录 ： </string>
-    <string name="my_favorite"> 收藏夹 ： </string>
+    <string name="my_orderlist"> 订单记录 </string>
+    <string name="my_favorite"> 收藏夹 </string>
     <string name="title_activity_home_image_fragment">HomeImageFragment</string>
     <string name="title_activity_commodity">Commodity</string>
     <string name="btn_sort">排序</string>
@@ -58,5 +58,10 @@
     <string name="choiceService">选择客服</string>
     <string name="title_activity_employee_detail">EmployeeDetail</string>
     <string name="title_activity_contact_the_store">ContactTheStore</string>
+    <string name="shopping_car">购物车</string>
+    <string name="title_activity_all_order_item">AllOrderItem</string>
+    <string name="title_activity_favorite">Favorite</string>
+    <string name="title_activity_my_edit">MyEdit</string>
+    <string name="edit_save">保存</string>
 
 </resources>

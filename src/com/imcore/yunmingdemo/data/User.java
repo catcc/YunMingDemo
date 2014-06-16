@@ -25,6 +25,13 @@ public class User {
 	public String salt;
 	public boolean isSaved = false;
 	public String PassWord;
+	public String birthday;
+	public String city;
+	public String userPictures;
+	public String name;
+	public long userId;
+	public String province;
+	public String gender;
 }
 
 

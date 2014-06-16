@@ -53,8 +53,8 @@ public class MallTab extends Fragment {
 					int arg3, long arg4) {
 				Intent intent = new Intent(getActivity(),CommodityItem.class);
 				Bundle bundle = new Bundle();
-				bundle.putLong("ComID", AllSList.get(arg2).get((int)arg4).getId());
-				bundle.putString("CommName", AllSList.get(arg2).get((int)arg4).getCategoryName());
+				bundle.putLong("ComID", AllSList.get(arg2).get((int)arg4).id);
+				bundle.putString("CommName", AllSList.get(arg2).get((int)arg4).categoryName);
 				intent.putExtra("CommId", bundle);
 				startActivity(intent);
 				return true;
@@ -93,8 +93,8 @@ public class MallTab extends Fragment {
 			}else{
 				cvh = (ChildViewHolder)view.getTag();
 			}
-			String SName = AllSList.get(groupPosition).get(childPosition).getCategoryName();
-			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ AllSList.get(groupPosition).get(childPosition).getImageUrl(), cvh.imgChild);
+			String SName = AllSList.get(groupPosition).get(childPosition).categoryName;
+			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ AllSList.get(groupPosition).get(childPosition).imageUrl, cvh.imgChild);
 			cvh.tvChild.setText(SName);
 			return view;
 		}
@@ -225,8 +225,8 @@ public class MallTab extends Fragment {
 						AllSList.add(SList);
 						AllSNList.add(SNList);
 						for (int j = 0; j < SList.size(); j++) {
-							Log.i("r", SList.get(j).getImageUrl() + SList.get(j).getCategoryName());
-							String SName = SList.get(j).getCategoryName();
+							Log.i("r", SList.get(j).imageUrl + SList.get(j).categoryName);
+							String SName = SList.get(j).categoryName;
 							SNList.add(SName);
 						}
 					} catch (Exception e) {

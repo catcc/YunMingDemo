@@ -101,6 +101,20 @@
             android:name="com.imcore.yunmingdemo.ui.ContactTheStore"
             android:label="@string/title_activity_contact_the_store" >
         </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.AllOrderItem"
+            android:label="@string/title_activity_all_order_item" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.Favorite"
+            android:label="@string/title_activity_favorite"
+            android:theme="@style/AppBaseTheme0" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.MyEdit"
+            android:label="@string/title_activity_my_edit"
+            android:theme="@style/AppBaseTheme0" >
+        </activity>
     </application>
 
 </manifest>
