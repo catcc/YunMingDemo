@@ -1,5 +1,6 @@
 package com.imcore.yunmingdemo.ui;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 	private ListView lvCommodity;
 	private RadioButton rbtnList,rbtnGrid;
 	private Button btnSort,btnFilter;
-	private List<Commodity> myCommList;
+	private List<Commodity> myCommList,relmyCommList;
 	private TextView tvTheme;
 	private ProgressDialog pg;
 	private long id;
@@ -80,13 +81,13 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 		@Override
 		public int getCount() {
 		
-			return myCommList.size();
+			return relmyCommList.size();
 		}
 
 		@Override
 		public Object getItem(int arg0) {
 			
-			return myCommList.get(arg0);
+			return relmyCommList.get(arg0);
 		}
 
 		@Override
@@ -112,11 +113,11 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 			}else{
 				viewHolder = (ViewHolder)view.getTag();
 			}
-			String Name = myCommList.get(arg0).productName;
-			long price = myCommList.get(arg0).price;
-			long saleTotal = myCommList.get(arg0).saleTotal;
-			long favotieTotal = myCommList.get(arg0).favotieTotal;
-			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ myCommList.get(arg0).imageUrl, viewHolder.img);
+			String Name = relmyCommList.get(arg0).productName;
+			long price = relmyCommList.get(arg0).price;
+			long saleTotal = relmyCommList.get(arg0).saleTotal;
+			long favotieTotal = relmyCommList.get(arg0).favotieTotal;
+			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ relmyCommList.get(arg0).imageUrl, viewHolder.img);
 			viewHolder.tvName.setText(Name);
 			viewHolder.tvPrice.setText("￥" + price);
 			viewHolder.tvsaleTotal.setText("销量："+saleTotal);
@@ -159,9 +160,13 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 				Class<Commodity> cla = Commodity.class;
 				
 				myCommList = JsonUtil.toObjectList(data, cla);
-				
+				relmyCommList = new ArrayList<Commodity>();
+				long price = 0; 
 				for (int i = 0; i < myCommList.size(); i++) {
-					Log.i("ee", myCommList.get(i).imageUrl + myCommList.get(i).productName);
+					price = myCommList.get(i).price;
+					if(price>0){
+						relmyCommList.add(myCommList.get(i));
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -315,7 +320,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		Intent intent = new Intent(CommodityItem.this,Productdetail.class);
 		Bundle bundle = new Bundle();
-		bundle.putLong("productId", myCommList.get(arg2).id);
+		bundle.putLong("productId", relmyCommList.get(arg2).id);
 		intent.putExtra("ProductId", bundle);
 		startActivity(intent);
 	}

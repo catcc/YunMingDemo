@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeaInfoDetail" >
+
+    <RelativeLayout
+        android:id="@+id/rl_tea_info_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/title_bg" >
+
+
+        <TextView
+            android:id="@+id/tv_tea_info_detail_theme_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img_tea_info_detail"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_below="@id/rl_tea_info_detail"
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:src="@drawable/no_picture"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/tv_tea_info_detail_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_tea_info_detail"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_tea_info_detail_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_tea_info_detail_content"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_tea_info_detail_evaluation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_bg" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="10dp"
+            android:text="@string/tea_info" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/chevron" />
+    </RelativeLayout>
+
+</RelativeLayout>

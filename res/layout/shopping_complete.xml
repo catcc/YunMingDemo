@@ -8,6 +8,8 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_margin="10dp"
+          android:scaleType="fitXY"
+        android:adjustViewBounds="true"
         android:contentDescription="@null" />
 
     <ImageView
@@ -17,6 +19,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:contentDescription="@null"
+          android:scaleType="fitXY"
+        android:adjustViewBounds="true"
         android:src="@drawable/delete_btn_normal" />
 
     <TextView

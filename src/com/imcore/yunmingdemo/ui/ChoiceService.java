@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.imcore.yunmingdemo.R;
+import com.imcore.yunmingdemo.data.Employee;
 import com.imcore.yunmingdemo.data.UserService;
 import com.imcore.yunmingdemo.http.HttpHelper;
 import com.imcore.yunmingdemo.http.HttpMethod;
@@ -35,8 +36,10 @@ public class ChoiceService extends Activity implements android.view.View.OnClick
 	private RelativeLayout rlChoiceService,rlEmployeeDetail;
 	private Button btnNext;
 	private TextView tvName;
-	private long id = 102;
-	private String employeeName = "梁海丽";
+	private long id ;
+	private String employeeName = "";
+	private long storeId;
+	private List<Employee> emList;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,9 +54,15 @@ public class ChoiceService extends Activity implements android.view.View.OnClick
 		rlChoiceService.setOnClickListener(this);
 		rlEmployeeDetail.setOnClickListener(this);
 		btnNext.setOnClickListener(this);
+		Intent intent = getIntent();
+		storeId = intent.getLongExtra("storeId", 0);
+		if(storeId!=0){
+			new StoreEmployeeTask().execute();
+		}else{
+			new SpecifyServiceTask().execute();
+		}
 		
 		
-		new SpecifyServiceTask().execute();
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -61,7 +70,11 @@ public class ChoiceService extends Activity implements android.view.View.OnClick
 					long arg3) {
 				tvName.setText(eList.get(arg2).userName);
 				employeeName = eList.get(arg2).userName;
+				if(storeId==0){
 				id = eList.get(arg2).id;
+				}else{
+				id = emList.get(arg2).id;
+				}
 			}
 		});
 	}
@@ -128,6 +141,7 @@ public class ChoiceService extends Activity implements android.view.View.OnClick
 			protected void onPostExecute(Void result) {
 				lv.setAdapter(new LvCSAdapter());
 				tvName.setText(eList.get(0).userName);
+				id = eList.get(0).id;
 				super.onPostExecute(result);
 			}
 			@Override
@@ -157,6 +171,39 @@ public class ChoiceService extends Activity implements android.view.View.OnClick
 			
 		}
 
+		//解析门店雇员
+				class StoreEmployeeTask extends AsyncTask<Void, Void, Void>{
+					@Override
+					protected void onPostExecute(Void result) {
+						lv.setAdapter(new LvCSAdapter());
+						tvName.setText(eList.get(0).userName);
+						id = emList.get(0).id;
+						super.onPostExecute(result);
+					}
+					@Override
+					protected Void doInBackground(Void... arg0) {
+						String url = "/store/employee/list.do";
+						Map<String,Object> map = new HashMap<String, Object>();
+						map.put("id", storeId);
+						RequestEntity entity = new RequestEntity(url, HttpMethod.GET, map);
+						String js;
+						try {
+							js = HttpHelper.execute(entity);
+							ResponseJsonEntity rjs = ResponseJsonEntity.fromJSON(js);
+							String data = rjs.getData();
+							eList = JsonUtil.toObjectList(data, UserService.class);
+							emList = JsonUtil.toObjectList(data,Employee.class);
+							for(int a = 0;a<eList.size();a++){
+								Log.i("employee", eList.get(a).id+"");
+							}
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+						return null;
+						
+					}
+					
+				}
 	
 
 	@Override

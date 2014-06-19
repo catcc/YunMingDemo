@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewProduct" >
+
+    <GridView
+        android:id="@+id/gv_new_procuct"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="170dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:background="#FFFFFF"
+        android:verticalSpacing="10dp"/>
+
+</RelativeLayout>

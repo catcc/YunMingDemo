@@ -54,15 +54,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    android:adjustViewBounds="true"
                     android:contentDescription="@null"
+                    android:scaleType="fitXY"
                     android:src="@drawable/round_radio_checked" />
 
                 <TextView
                     android:id="@+id/tv_cs_employeeName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/img_check_employee"
                     android:layout_margin="10dp"
+                    android:layout_toRightOf="@id/img_check_employee"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -71,7 +73,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
+                    android:adjustViewBounds="true"
                     android:contentDescription="@null"
+                    android:scaleType="fitXY"
                     android:src="@drawable/chevron" />
             </RelativeLayout>
 
@@ -102,7 +106,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_margin="10dp"
+                    android:adjustViewBounds="true"
                     android:contentDescription="@null"
+                    android:scaleType="fitXY"
                     android:src="@drawable/chevron" />
             </RelativeLayout>
 
@@ -120,6 +126,7 @@
                 android:layout_below="@id/tv_cs_line_two"
                 android:visibility="gone" >
             </ListView>
+
             <TextView
                 android:id="@+id/tv_csa_name"
                 android:layout_width="wrap_content"
@@ -141,20 +148,22 @@
                 android:layout_margin="10dp" />
         </RelativeLayout>
     </RelativeLayout>
-	<RelativeLayout 
-	    android:id="@+id/cs_five"
-	    android:layout_width="match_parent"
-	    android:layout_alignParentBottom="true"
-	    android:background="#707070"
-	    android:layout_height="wrap_content">
-	    <Button 
-	        android:id="@+id/btn_cs_next"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_centerInParent="true"
-	        android:text="下一步"
-	        android:textSize="20sp"
-	        android:background="@drawable/red_btn_normal"/>
-	    
-	</RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/cs_five"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#707070" >
+
+        <Button
+            android:id="@+id/btn_cs_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/red_btn_normal"
+            android:text="下一步"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
 </RelativeLayout>

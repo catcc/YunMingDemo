@@ -6,6 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
@@ -32,7 +34,7 @@ import com.imcore.yunmingdemo.util.DisplayUtil;
 import com.imcore.yunmingdemo.util.JsonUtil;
 
 
-public class HomeTab extends Fragment {
+public class HomeTab extends Fragment implements OnClickListener{
 	private ViewPager vp;
 	public  List<ImageTop> topList;
 	private ArrayList<ImageView> imgList;
@@ -40,6 +42,7 @@ public class HomeTab extends Fragment {
 	private List<String> imgUrlList;
 	private View rootView;
 	private int currentItem = 0;
+	private ImageView HomeNewArrival,HomeTeaInfo,HomeTopSellers,HomeContactStore;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -48,6 +51,15 @@ public class HomeTab extends Fragment {
 		imgList = new ArrayList<ImageView>();
 		imgUrlList = new ArrayList<String>();
 		vp = (ViewPager)rootView.findViewById(R.id.view_pager);
+		HomeNewArrival = (ImageView)rootView.findViewById(R.id.home_new_arrival);
+		HomeTeaInfo = (ImageView)rootView.findViewById(R.id.home_tea_info);
+		HomeTopSellers = (ImageView)rootView.findViewById(R.id.home_top_sellers);
+		HomeContactStore = (ImageView)rootView.findViewById(R.id.home_contact_store);
+		
+		HomeNewArrival.setOnClickListener(this);
+		HomeTeaInfo.setOnClickListener(this);
+		HomeTopSellers.setOnClickListener(this);
+		HomeContactStore.setOnClickListener(this);
 		
 		new ImageTask().execute();
 		
@@ -220,6 +232,39 @@ public class HomeTab extends Fragment {
 			handler.sendMessage(msg);
 		}
 	};
+	@Override
+	public void onClick(View arg0) {
+		Intent intent = new Intent();
+		switch (arg0.getId()) {
+			case R.id.home_new_arrival:
+				
+				intent.setClass(getActivity(),NewProduct.class);
+				startActivity(intent);
+				
+				break;
+				
+			case R.id.home_tea_info:
+				intent.setClass(getActivity(),TeaInfo.class);
+				startActivity(intent);
+				break;
+			case R.id.home_top_sellers:
+				
+				intent.setClass(getActivity(), Sellers.class);
+				startActivity(intent);
+	
+				break;
+			case R.id.home_contact_store:
+				
+				intent.setClass(getActivity(),ContactTheStore.class);
+				startActivity(intent);
+				
+				break;
+
+		default:
+			break;
+		}
+		
+	}
 	
 	
 	

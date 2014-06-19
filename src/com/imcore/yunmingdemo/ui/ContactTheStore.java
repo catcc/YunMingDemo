@@ -2,16 +2,18 @@ package com.imcore.yunmingdemo.ui;
 
 import java.util.List;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.imcore.yunmingdemo.R;
@@ -23,16 +25,15 @@ import com.imcore.yunmingdemo.http.ResponseJsonEntity;
 import com.imcore.yunmingdemo.image.ImageFetcher;
 import com.imcore.yunmingdemo.util.JsonUtil;
 
-public class ContactTheStore extends Fragment {
+public class ContactTheStore extends Activity {
 	private List<Store> storeList;
 	private ListView lv;
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.activity_contact_the_store, null);
-		lv = (ListView)view.findViewById(R.id.lv_store);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_contact_the_store);
+		lv = (ListView)findViewById(R.id.lv_store);
 		new CContactTheStoreTask().execute();
-		return view;
 	}
 	
 	private class StoreAdapter extends BaseAdapter{
@@ -53,32 +54,50 @@ public class ContactTheStore extends Fragment {
 			return arg0;
 		}
 
-		@SuppressWarnings("unused")
 		@Override
 		public View getView(int arg0, View arg1, ViewGroup arg2) {
 			View view = arg1;
-			ViewHolder viewHolder = null;
-			if(viewHolder == null){
-			view = getActivity().getLayoutInflater().inflate(R.layout.commodity_item_fragment, null);
+			final ViewHolder viewHolder;
+			if(view == null){
+			view = getLayoutInflater().inflate(R.layout.contact_the_store_item, null);
 			viewHolder = new ViewHolder();
-			viewHolder.tvName = (TextView)view.findViewById(R.id.tv_commodity_name);
-			viewHolder.tvPrice = (TextView)view.findViewById(R.id.tv_commodity_price);
-			viewHolder.tvsaleTotal = (TextView)view.findViewById(R.id.tv_commodity_saleTotal);
-			viewHolder.tvfavotieTotal = (TextView)view.findViewById(R.id.tv_commodity_favotieTotal);
-			viewHolder.img = (ImageView)view.findViewById(R.id.img_commodity);
+			viewHolder.tvStoreName = (TextView)view.findViewById(R.id.tv_store_name);
+			viewHolder.tvStoreAddress = (TextView)view.findViewById(R.id.tv_store_address);
+			viewHolder.img = (ImageView)view.findViewById(R.id.img_store);
+			viewHolder.rlOne = (RelativeLayout)view.findViewById(R.id.rl_store_one);
+			viewHolder.rlTwo = (RelativeLayout)view.findViewById(R.id.rl_store_two);
 			view.setTag(viewHolder);
 				
 			}else{
 				viewHolder = (ViewHolder)view.getTag();
 			}
+			viewHolder.tvStoreName.setText(storeList.get(arg0).name);
+			viewHolder.tvStoreAddress.setText(storeList.get(arg0).address);
 			new ImageFetcher().fetch("http://yunming-api.suryani.cn" +"/"+ storeList.get(arg0).pictureUrl, viewHolder.img);
-			
+			final Store store = storeList.get(arg0);
+			viewHolder.rlOne.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					
+				}
+			});
+			viewHolder.rlTwo.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					Intent intent = new Intent(ContactTheStore.this,ChoiceService.class);
+					intent.putExtra("storeId", store.id);
+					startActivity(intent);
+				}
+			});
 			return view;
 		}
 		
 		class ViewHolder{
-			TextView tvName,tvPrice,tvsaleTotal,tvfavotieTotal;
+			TextView tvStoreName,tvStoreAddress;
 			ImageView img;
+			RelativeLayout rlOne,rlTwo;
 		}
 	}
 	

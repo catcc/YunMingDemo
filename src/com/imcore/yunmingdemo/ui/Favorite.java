@@ -117,6 +117,8 @@ public class Favorite extends Activity {
 			Map<String,Object> map = new HashMap<String,Object>();
 			map.put("userId", userId);
 			map.put("type",2);
+			map.put("offset", 0);
+			map.put("fetchSize", 1000);
 			RequestEntity entity = new RequestEntity(url,HttpMethod.GET,map);	
 			relList = new ArrayList<Collection>();
 			String js;

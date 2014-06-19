@@ -16,7 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:adjustViewBounds="true"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:src="@drawable/no_picture" />
 
         <TextView
@@ -25,6 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_toRightOf="@id/img_my_picture"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:textSize="18sp" />
 
         <TextView
@@ -72,7 +76,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/tv_my_grade_number"
             android:layout_margin="10dp"
+            android:adjustViewBounds="true"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:src="@drawable/mine_edit_normal" />
     </RelativeLayout>
 
@@ -98,7 +104,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_margin="15dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@null"
+                android:scaleType="fitXY"
                 android:src="@drawable/mine_orderlist" />
 
             <TextView
@@ -117,7 +125,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
                 android:contentDescription="@null"
+                android:scaleType="fitXY"
                 android:src="@drawable/chevron" />
         </RelativeLayout>
 
@@ -140,7 +150,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_margin="15dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@null"
+                android:scaleType="fitXY"
                 android:src="@drawable/mine_favorite" />
 
             <TextView
@@ -159,7 +171,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
                 android:contentDescription="@null"
+                android:scaleType="fitXY"
                 android:src="@drawable/chevron" />
         </RelativeLayout>
 
@@ -182,7 +196,9 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_margin="15dp"
+                android:adjustViewBounds="true"
                 android:contentDescription="@null"
+                android:scaleType="fitXY"
                 android:src="@drawable/mine_shopping_cart" />
 
             <TextView
@@ -201,7 +217,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
                 android:contentDescription="@null"
+                android:scaleType="fitXY"
                 android:src="@drawable/chevron" />
         </RelativeLayout>
     </RelativeLayout>
@@ -220,7 +238,9 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="15dp"
+            android:adjustViewBounds="true"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:src="@drawable/mine_push_notification" />
 
         <TextView
@@ -230,6 +250,8 @@
             android:layout_centerVertical="true"
             android:layout_margin="15dp"
             android:layout_toRightOf="@id/img_news"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
             android:text="推送消息"
             android:textSize="23sp" />
 
@@ -239,7 +261,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:src="@drawable/chevron" />
     </RelativeLayout>
 

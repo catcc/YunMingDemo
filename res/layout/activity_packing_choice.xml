@@ -22,10 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/rl_pack_one"
-        android:layout_marginTop="10dp" 
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp" >
 
         <TextView
             android:id="@+id/tv_packing_choice"
@@ -81,8 +81,6 @@
             android:textColor="#000000"
             android:textSize="20sp" />
     </RelativeLayout>
-    
-  
 
     <TextView
         android:id="@+id/tv_line_one"
@@ -110,7 +108,7 @@
             android:textColor="#000000"
             android:textSize="20sp" />
     </RelativeLayout>
-    
+
     <TextView
         android:id="@+id/tv_line_two"
         android:layout_width="match_parent"
@@ -147,7 +145,7 @@
             android:textSize="20sp" />
     </RelativeLayout>
 
-       <TextView
+    <TextView
         android:id="@+id/tv_line_three"
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -182,8 +180,8 @@
             android:textColor="#000000"
             android:textSize="20sp" />
     </RelativeLayout>
-    
-     <TextView
+
+    <TextView
         android:id="@+id/tv_line_four"
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -191,13 +189,14 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="5dp"
         android:background="#EFEFE7" />
-    
+
     <RelativeLayout
         android:id="@+id/rl_pack_seven"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_line_four"
-        android:layout_alignParentBottom="true" >
+        android:background="@drawable/gray_bg"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/tv_line_four" >
 
         <ImageView
             android:id="@+id/img_pack_collects"
@@ -210,6 +209,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@null"
             android:gravity="center"
+            android:scaleType="fitXY"
             android:src="@drawable/collect_btn_normal" />
 
         <ImageView
@@ -223,6 +223,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@null"
             android:gravity="center"
+            android:scaleType="fitXY"
             android:src="@drawable/comment_btn_normal" />
 
         <ImageView
@@ -236,6 +237,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@null"
             android:gravity="center"
+            android:scaleType="fitXY"
             android:src="@drawable/recommend_btn_normal" />
 
         <Button
@@ -247,8 +249,8 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:adjustViewBounds="true"
-            android:gravity="center"
             android:background="@drawable/red_btn_normal"
+            android:gravity="center"
             android:text="@string/btn_add"
             android:textSize="14sp" />
     </RelativeLayout>

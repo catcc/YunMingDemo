@@ -23,6 +23,7 @@
         android:background="#929598" >
 
         <LinearLayout
+            android:id="@+id/ll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -33,44 +34,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:background="@drawable/circle_white"
                 android:contentDescription="@null"
-                android:background="@drawable/circle_white" />
+                android:scaleType="fitXY" />
 
             <ImageView
                 android:id="@+id/iv_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:contentDescription="@null"
+                android:adjustViewBounds="true"
                 android:background="@drawable/circle_white"
-                 />
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
             <ImageView
                 android:id="@+id/iv_three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:contentDescription="@null"
+                android:adjustViewBounds="true"
                 android:background="@drawable/circle_white"
-                 />
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
             <ImageView
                 android:id="@+id/iv_four"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:contentDescription="@null"
+                android:adjustViewBounds="true"
                 android:background="@drawable/circle_white"
-                 />
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
 
             <ImageView
                 android:id="@+id/iv_five"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:contentDescription="@null"
+                android:adjustViewBounds="true"
                 android:background="@drawable/circle_white"
-                />
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -93,8 +100,9 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/line"
             android:adjustViewBounds="true"
+            android:background="@drawable/new_product"
             android:contentDescription="@null"
-            android:src="@drawable/home_new_arrival_normal" />
+            android:scaleType="fitXY" />
 
         <ImageView
             android:id="@+id/home_tea_info"
@@ -103,8 +111,9 @@
             android:layout_below="@id/home_new_arrival"
             android:layout_toLeftOf="@id/line"
             android:adjustViewBounds="true"
+            android:background="@drawable/tea_info"
             android:contentDescription="@null"
-            android:src="@drawable/home_tea_info_normal" />
+            android:scaleType="fitXY" />
 
         <ImageView
             android:id="@+id/home_top_sellers"
@@ -112,8 +121,9 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/line"
             android:adjustViewBounds="true"
+            android:background="@drawable/top_sellers"
             android:contentDescription="@null"
-            android:src="@drawable/home_top_sellers_normal" />
+            android:scaleType="fitXY" />
 
         <ImageView
             android:id="@+id/home_contact_store"
@@ -122,8 +132,9 @@
             android:layout_below="@id/home_top_sellers"
             android:layout_toRightOf="@id/line"
             android:adjustViewBounds="true"
+            android:background="@drawable/contact_store"
             android:contentDescription="@null"
-            android:src="@drawable/home_contact_store_normal" />
+            android:scaleType="fitXY" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -8,7 +8,9 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_margin="10dp"
-        android:contentDescription="@null" />
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/tv_ConfirmOrder_name"
@@ -26,7 +28,7 @@
         android:layout_margin="10dp"
         android:layout_toRightOf="@id/img_ConfirmOrder"
         android:textSize="18sp" />
-    
+
     <TextView
         android:id="@+id/tv_ConfirmOrder_weight"
         android:layout_width="wrap_content"
@@ -49,13 +51,10 @@
         android:id="@+id/tv_ConfirmOrder_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="30dp"
         android:layout_below="@id/tv_ConfirmOrder_pack"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@id/tv_ConfirmOrder_price"
         android:textSize="18sp" />
-
- 
-    
 
 </RelativeLayout>

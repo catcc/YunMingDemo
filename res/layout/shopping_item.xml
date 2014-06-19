@@ -8,7 +8,9 @@
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_margin="10dp"
-        android:contentDescription="@null" />
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/tv_shopping_name"
@@ -51,8 +53,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="80dp"
         android:layout_toRightOf="@id/tv_shopping_number"
+        android:adjustViewBounds="true"
         android:contentDescription="@null"
+        android:scaleType="fitXY"
         android:src="@drawable/chevron" />
-    
 
 </RelativeLayout>

@@ -63,15 +63,11 @@ public class HomeActivity extends ActionBarActivity {
 		item3.put(NAVI_ITEM_TEXT, mNaviItemText[2]);
 		item3.put(NAVI_ITEM_ICON,R.drawable.tab_mine_pressed);
 		
-		Map<String,Object> item4 = new HashMap<String, Object>();
-		item4.put(NAVI_ITEM_TEXT, mNaviItemText[3]);
-		item4.put(NAVI_ITEM_ICON,R.drawable.contact_store_show_customer_normal);
 		
 		List<Map<String, Object>> data = new ArrayList<Map<String, Object>>();
 		data.add(item1);
 		data.add(item2);
 		data.add(item3);
-		data.add(item4);
 		
 		String[] from = new String[]{NAVI_ITEM_TEXT,NAVI_ITEM_ICON};
 		int[] to = new int[]{R.id.tv_navi_item_text,R.id.iv_navi_item_icon};
@@ -128,8 +124,6 @@ public class HomeActivity extends ActionBarActivity {
 		case 2:
 			frg = new MyTab();
 			break;
-		case 3:
-			frg = new ContactTheStore();
 		default:
 			break;
 		}

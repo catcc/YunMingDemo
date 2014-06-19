@@ -63,5 +63,15 @@
     <string name="title_activity_favorite">Favorite</string>
     <string name="title_activity_my_edit">MyEdit</string>
     <string name="edit_save">保存</string>
+    <string name="user_name">用户名</string>
+    <string name="rel_name">姓名</string>
+    <string name="job">职务</string>
+    <string name="Password_modification">密码修改</string>
+    <string name="title_activity_new_product">NewProduct</string>
+    <string name="title_activity_tea_info">TeaInfo</string>
+    <string name="title_activity_tea_info_detail">TeaInfoDetail</string>
+    <string name="tea_info">发表评论</string>
+    <string name="title_activity_news_evaluation">NewsEvaluation</string>
+    <string name="title_activity_sellers">Sellers</string>
 
 </resources>

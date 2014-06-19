@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/img_store"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:scaleType="fitXY"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/tv_store_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@id/img_store"
+        android:textColor="#B88838"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_store_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/tv_store_name"
+        android:layout_toRightOf="@id/img_store"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/tv_store_address"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/img_store" >
+
+        <RelativeLayout
+            android:id="@+id/rl_store_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/contact_store_show_normal" >
+
+            <TextView
+                android:id="@+id/tv_map"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="地图 " />
+
+            <ImageView
+                android:id="@+id/home_new_arrival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:contentDescription="@null"
+                android:src="@drawable/show_location_icon" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_store_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/contact_store_show_normal" >
+
+            <TextView
+                android:id="@+id/tv_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:text="客服" />
+
+            <ImageView
+                android:id="@+id/img_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:contentDescription="@null"
+                android:src="@drawable/show_customer_icon" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

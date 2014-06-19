@@ -4,22 +4,23 @@
     android:layout_height="match_parent"
     android:background="#8C8A84"
     android:orientation="vertical" >
-    <ImageView 
+
+    <ImageView
         android:id="@+id/img_subclass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
+        android:contentDescription="@null"
         android:paddingTop="20dp"
-        android:contentDescription="@null"/>
-    <TextView 
+        android:scaleType="fitXY" />
+
+    <TextView
         android:id="@+id/tv_subclass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/img_subclass"
         android:paddingTop="20dp"
-		android:layout_toRightOf="@id/img_subclass"
-		android:layout_centerHorizontal="true"
-        android:textSize="35sp"
-        />
+        android:textSize="35sp" />
 
 </RelativeLayout>
-

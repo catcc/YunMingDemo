@@ -8,7 +8,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_margin="10dp"
-        android:contentDescription="@null" />
+        android:adjustViewBounds="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY" />
 
     <TextView
         android:id="@+id/tv_item_name"
@@ -44,7 +46,5 @@
         android:layout_marginTop="70dp"
         android:layout_toRightOf="@id/tv_item_price"
         android:textSize="18sp" />
-
-    
 
 </RelativeLayout>

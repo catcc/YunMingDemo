@@ -3,28 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <ImageView 
+
+    <ImageView
         android:id="@+id/img_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp"
         android:adjustViewBounds="true"
-        android:contentDescription="@null"/>
-    <TextView 
+        android:contentDescription="@null"
+        android:paddingTop="20dp"
+        android:scaleType="fitXY" />
+
+    <TextView
         android:id="@+id/tv_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		android:layout_toRightOf="@id/img_category"
-		android:paddingTop="20dp"
-        android:textSize="28sp"
-        />
-    <ImageView 
+        android:layout_toRightOf="@id/img_category"
+        android:paddingTop="20dp"
+        android:textSize="28sp" />
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:padding="30dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/chevron_down"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null"
+        android:padding="30dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/chevron_down" />
 
 </RelativeLayout>

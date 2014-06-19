@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECEDE3"
     tools:context=".MyEdit" >
 
     <RelativeLayout
@@ -25,43 +26,47 @@
             android:layout_centerInParent="true"
             android:text="编辑"
             android:textSize="20sp" />
-        
+
         <TextView
             android:id="@+id/tv_edit_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:background="@drawable/edit_btn_normal"
             android:text="@string/edit_save" />
     </RelativeLayout>
-    
-    <RelativeLayout 
+
+    <RelativeLayout
         android:id="@+id/rl_edit_one"
-        android:layout_below="@id/rl_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/rl_edit"
         android:layout_margin="10dp"
         android:background="@drawable/edit_bg" >
-        
-       <ImageView 
-           android:id="@+id/img_user_picture"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:src="@drawable/no_picture"
-           android:contentDescription="@null"/>
-       <ImageView
+
+        <ImageView
+            android:id="@+id/img_user_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/no_picture" />
+
+        <ImageView
             android:id="@+id/img_eidt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
             android:contentDescription="@null"
+            android:scaleType="fitXY"
             android:src="@drawable/chevron" />
-        
     </RelativeLayout>
-    
+
     <RelativeLayout
         android:id="@+id/rl_edit_two"
         android:layout_width="match_parent"
@@ -78,14 +83,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
-            <ImageView
-                android:id="@+id/img_edit_username"
+            <TextView
+                android:id="@+id/tv_edit_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_margin="15dp"
-                android:contentDescription="@null"
-                android:src="@drawable/mine_orderlist" />
+                android:text="@string/user_name"
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/tv__edit_username"
@@ -93,10 +98,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_margin="15dp"
-                android:layout_toRightOf="@id/img_edit_username"
-                android:text="@string/my_orderlist"
+                android:layout_toRightOf="@id/tv_edit_user_name"
                 android:textSize="23sp" />
-
         </RelativeLayout>
 
         <TextView
@@ -107,81 +110,89 @@
             android:background="#EFEFE7" />
 
         <RelativeLayout
-            android:id="@+id/rl_my_one"
+            android:id="@+id/rl_edit_four"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_oneline" >
 
-            <ImageView
-                android:id="@+id/img_favorite"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="15dp"
-                android:contentDescription="@null"
-                android:src="@drawable/mine_favorite" />
-
             <TextView
-                android:id="@+id/tv_favorite"
+                android:id="@+id/tv_edit_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_margin="15dp"
-                android:layout_toRightOf="@id/img_favorite"
-                android:text="@string/my_favorite"
+                android:text="@string/rel_name"
                 android:textSize="23sp" />
 
-            <ImageView
-                android:id="@+id/img_MY_chevron_two"
+            <TextView
+                android:id="@+id/tv_edit_rel_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:contentDescription="@null"
-                android:src="@drawable/chevron" />
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@id/tv_edit_name"
+                android:textSize="23sp" />
         </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_oneline_two"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/rl_my_one"
+            android:layout_below="@id/rl_edit_four"
             android:background="#EFEFE7" />
 
         <RelativeLayout
-            android:id="@+id/rl_my_two"
+            android:id="@+id/rl_edit_five"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/rl_my_one" >
-
-            <ImageView
-                android:id="@+id/img_shopping_car"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="15dp"
-                android:contentDescription="@null"
-                android:src="@drawable/mine_shopping_cart" />
+            android:layout_below="@id/tv_oneline_two" >
 
             <TextView
-                android:id="@+id/tv_shopping_car"
+                android:id="@+id/tv_edit_job"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_margin="15dp"
-                android:layout_toRightOf="@id/img_shopping_car"
-                android:text="@string/shopping_car"
+                android:text="@string/job"
                 android:textSize="23sp" />
 
-            <ImageView
-                android:id="@+id/img_MY_chevron_three"
+            <TextView
+                android:id="@+id/tv_edit_duties"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:contentDescription="@null"
-                android:src="@drawable/chevron" />
+                android:layout_margin="15dp"
+                android:layout_toRightOf="@id/tv_edit_job" />
         </RelativeLayout>
     </RelativeLayout>
-    
+
+    <RelativeLayout
+        android:id="@+id/rl_edit_six"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_edit_two"
+        android:layout_margin="10dp"
+        android:background="@drawable/edit_bg" >
+
+        <TextView
+            android:id="@+id/tv_Password_modification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:text="@string/Password_modification"
+            android:textSize="23sp" />
+
+        <ImageView
+            android:id="@+id/img_MY_chevron_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/chevron" />
+    </RelativeLayout>
+
 </RelativeLayout>
