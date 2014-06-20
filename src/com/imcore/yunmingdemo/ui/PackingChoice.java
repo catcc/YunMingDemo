@@ -23,6 +23,9 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+
 import com.imcore.yunmingdemo.R;
 import com.imcore.yunmingdemo.data.ProductImages;
 import com.imcore.yunmingdemo.data.ProductPackingChoice;
@@ -44,6 +47,8 @@ public class PackingChoice extends Activity implements android.view.View.OnClick
 	private Button btnShopping;
 	private String sku;
 	private long productId;
+	private ImageView shareImg;
+	private TextView tvBack;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,12 +56,21 @@ public class PackingChoice extends Activity implements android.view.View.OnClick
 		glPackingChoice = (Gallery)findViewById(R.id.gl_packing_choice);
 		glPackingChoiceDetail = (Gallery)findViewById(R.id.gl_packing_choice_detail);
 		
+		ShareSDK.initSDK(this,"211e5ff1fc00");
+		
 		tvWeight = (TextView)findViewById(R.id.tv_weight);
 		tvPacking = (TextView)findViewById(R.id.tv_packs);
 		tvPrice = (TextView)findViewById(R.id.tv_price);
 		
 		btnShopping = (Button)findViewById(R.id.btn_shopping);
 		btnShopping.setOnClickListener(this);
+		
+		shareImg = (ImageView)findViewById(R.id.img_pack_recommend);
+		
+		tvBack = (TextView)findViewById(R.id.tv_back);
+		tvBack.setOnClickListener(this);
+		
+		shareImg.setOnClickListener(this);
 		
 		Intent intent = getIntent();
 		Bundle bundle = intent.getBundleExtra("productInfo");
@@ -245,9 +259,28 @@ public class PackingChoice extends Activity implements android.view.View.OnClick
 				}
 			}).show();
 			break;
+			
+		case R.id.img_recommend:
+			OnekeyShare oks = new OnekeyShare();
+			// 分享时Notification的图标和文字
+			oks.setNotification(R.drawable.ic_launcher,
+					PackingChoice.this.getString(R.string.app_name));
+			// text是分享文本，所有平台都需要这个字段
+			oks.setText("分享内容");
+			oks.show(arg0.getContext());
 
+			break;
+		case R.id.tv_back:
+			finish();
+			break;
 		default:
 			break;
 		}
+	}
+	
+	@Override
+	protected void onStop() {
+		ShareSDK.stopSDK(this);
+		super.onStop();
 	}
 }

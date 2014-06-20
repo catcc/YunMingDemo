@@ -25,6 +25,8 @@ import com.imcore.yunmingdemo.http.ResponseJsonEntity;
 import com.imcore.yunmingdemo.image.ImageFetcher;
 import com.imcore.yunmingdemo.util.JsonUtil;
 
+
+
 public class ContactTheStore extends Activity {
 	private List<Store> storeList;
 	private ListView lv;
@@ -79,7 +81,8 @@ public class ContactTheStore extends Activity {
 				
 				@Override
 				public void onClick(View arg0) {
-					
+					Intent intent = new Intent(ContactTheStore.this,MapFixation.class);
+					startActivity(intent);
 				}
 			});
 			viewHolder.rlTwo.setOnClickListener(new OnClickListener() {

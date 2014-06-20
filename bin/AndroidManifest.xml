@@ -11,12 +11,36 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="itXvKOCmDk0O8NzqK4QPHyMo" />
+
+        <activity
+            android:name="cn.sharesdk.framework.ShareSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name="com.imcore.yunmingdemo.ui.LoginScreenActivity"
             android:label="@string/app_name"
@@ -59,11 +83,13 @@
         </activity>
         <activity
             android:name="com.imcore.yunmingdemo.ui.Productdetail"
-            android:label="@string/title_activity_productdetail" >
+            android:label="@string/title_activity_productdetail"
+            android:theme="@style/AppBaseTheme0" >
         </activity>
         <activity
             android:name="com.imcore.yunmingdemo.ui.ProductDetailImages"
-            android:label="@string/title_activity_product_detail_images" >
+            android:label="@string/title_activity_product_detail_images"
+            android:theme="@style/AppBaseTheme0" >
         </activity>
         <activity
             android:name="com.imcore.yunmingdemo.ui.ProductInfo"
@@ -76,7 +102,8 @@
         </activity>
         <activity
             android:name="com.imcore.yunmingdemo.ui.PackingChoice"
-            android:label="@string/title_activity_packing_choice" >
+            android:label="@string/title_activity_packing_choice"
+            android:theme="@style/AppBaseTheme0" >
         </activity>
         <activity
             android:name="com.imcore.yunmingdemo.ui.Shopping"
@@ -136,6 +163,14 @@
         <activity
             android:name="com.imcore.yunmingdemo.ui.Sellers"
             android:label="@string/title_activity_sellers" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.ui.MapFixation"
+            android:label="@string/title_activity_map" >
+        </activity>
+        <activity
+            android:name="com.imcore.yunmingdemo.SearchResult"
+            android:label="@string/title_activity_search_result" >
         </activity>
     </application>
 

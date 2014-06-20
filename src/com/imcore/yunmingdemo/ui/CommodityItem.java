@@ -41,7 +41,7 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 	private RadioButton rbtnList,rbtnGrid;
 	private Button btnSort,btnFilter;
 	private List<Commodity> myCommList,relmyCommList;
-	private TextView tvTheme;
+	private TextView tvTheme,tvBack;
 	private ProgressDialog pg;
 	private long id;
 	private static int sortIndex=0;
@@ -58,12 +58,16 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 		rbtnGrid = (RadioButton)findViewById(R.id.rb_grid);
 		tvTheme = (TextView)findViewById(R.id.tv_theme_name);
 		
+		tvBack = (TextView)findViewById(R.id.tv_back);
+		
 		init();
 		
 		btnSort.setOnClickListener(this);
 		btnFilter.setOnClickListener(this);
 		rbtnList.setOnClickListener(this);
 		rbtnGrid.setOnClickListener(this);
+		tvBack.setOnClickListener(this);
+		
 		gvCommodity.setOnItemClickListener(this);
 		lvCommodity.setOnItemClickListener(this);
 	}
@@ -208,6 +212,9 @@ public class CommodityItem extends Activity implements android.view.View.OnClick
 			break;
 		case R.id.btn_product_filter :
 			new FilterAlertDialogInCommodity();
+			break;
+		case R.id.tv_back :
+			finish();
 			break;
 		}
 	}

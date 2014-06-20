@@ -19,7 +19,7 @@
         android:layout_margin="10dp"
         android:layout_toRightOf="@id/img_store"
         android:textColor="#B88838"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_store_address"
@@ -28,7 +28,7 @@
         android:layout_margin="10dp"
         android:layout_below="@id/tv_store_name"
         android:layout_toRightOf="@id/img_store"
-        android:textSize="15sp" />
+        android:textSize="12sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -36,6 +36,7 @@
         android:layout_margin="10dp"
         android:layout_below="@id/tv_store_address"
         android:orientation="horizontal"
+        android:baselineAligned="false"
         android:layout_toRightOf="@id/img_store" >
 
         <RelativeLayout

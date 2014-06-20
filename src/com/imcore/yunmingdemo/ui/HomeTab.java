@@ -48,25 +48,26 @@ public class HomeTab extends Fragment implements OnClickListener{
 			Bundle savedInstanceState) {
 		rootView = inflater
 				.inflate(R.layout.activity_home_tab, null);
+		
 		imgList = new ArrayList<ImageView>();
 		imgUrlList = new ArrayList<String>();
+		
 		vp = (ViewPager)rootView.findViewById(R.id.view_pager);
 		HomeNewArrival = (ImageView)rootView.findViewById(R.id.home_new_arrival);
 		HomeTeaInfo = (ImageView)rootView.findViewById(R.id.home_tea_info);
 		HomeTopSellers = (ImageView)rootView.findViewById(R.id.home_top_sellers);
 		HomeContactStore = (ImageView)rootView.findViewById(R.id.home_contact_store);
-		
+		new ImageTask().execute();
 		HomeNewArrival.setOnClickListener(this);
 		HomeTeaInfo.setOnClickListener(this);
 		HomeTopSellers.setOnClickListener(this);
 		HomeContactStore.setOnClickListener(this);
 		
-		new ImageTask().execute();
+		timer.schedule(tt, 1000,1000);
 		
 		
 		return rootView;
 	}
-	
 	
 	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler(){
@@ -102,8 +103,10 @@ public class HomeTab extends Fragment implements OnClickListener{
 				}
 			}
 			if(msg.what == 35) {
-				currentItem = (currentItem+1) % topList.size();
-				vp.setCurrentItem(currentItem);
+				if(topList!=null){
+					currentItem = (currentItem+1) % topList.size();
+					vp.setCurrentItem(currentItem);
+				}
 
 			}
 		};
@@ -209,18 +212,13 @@ public class HomeTab extends Fragment implements OnClickListener{
 	   
 	   }
 	
-	@Override
-	public void onStart() {
-		super.onStart();
-		//指定两秒钟切换一张图片
-		timer.schedule(tt, 1000,1000);
-	}
+//	@Override
+//	public void onStart() {
+//		super.onStart();
+//		//指定4秒钟切换一张图片
+//		timer.schedule(tt, 1000,1000);
+//	}
 	
-	@Override
-	public void onStop() {
-		super.onStop();
-		timer.cancel();
-	}
 	
 	private Timer timer = new Timer();
 	private TimerTask tt = new TimerTask() {

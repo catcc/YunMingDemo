@@ -19,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+
 import com.imcore.yunmingdemo.R;
 import com.imcore.yunmingdemo.data.Product;
 import com.imcore.yunmingdemo.data.ProductImages;
@@ -39,10 +42,15 @@ public class Productdetail extends Activity implements OnClickListener{
 			tvProductItems;
 	private RelativeLayout rlPack,rlDetail,rlEvaluation;
 	private Button btnChoicePacking;
+	private ImageView shareImg;
+	private TextView tvBack;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_productdetail);
+		
+		ShareSDK.initSDK(this,"211e5ff1fc00");
+		
 		Intent intent = getIntent();
 		Bundle bundle = intent.getBundleExtra("ProductId");
 		id = bundle.getLong("productId");
@@ -57,7 +65,18 @@ public class Productdetail extends Activity implements OnClickListener{
 		rlDetail = (RelativeLayout)findViewById(R.id.rl_pro_eight);
 		rlEvaluation = (RelativeLayout)findViewById(R.id.rl_pro_six);
 		
+		shareImg = (ImageView)findViewById(R.id.img_recommend);
+		
 		btnChoicePacking = (Button)findViewById(R.id.btn_choice_packing);
+		tvBack = (TextView)findViewById(R.id.tv_back);
+		tvBack.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				finish();
+				
+			}
+		});
 		
 		new ProductDetailTask().execute();
 		glProtuctImage = (Gallery)findViewById(R.id.gl_productImage);
@@ -123,6 +142,8 @@ public class Productdetail extends Activity implements OnClickListener{
 			rlEvaluation.setOnClickListener(Productdetail.this);
 			btnChoicePacking.setOnClickListener(Productdetail.this);
 			
+			shareImg.setOnClickListener(Productdetail.this);
+			
 			super.onPostExecute(result);
 		}
 		@Override
@@ -187,7 +208,24 @@ public class Productdetail extends Activity implements OnClickListener{
 				intent.putExtra("productInfo", bundle);
 				startActivity(intent);
 				break;
+				
+			case R.id.img_recommend:
+				OnekeyShare oks = new OnekeyShare();
+				// 分享时Notification的图标和文字
+				oks.setNotification(R.drawable.ic_launcher,
+						Productdetail.this.getString(R.string.app_name));
+				// text是分享文本，所有平台都需要这个字段
+				oks.setText("分享内容");
+				oks.setImageUrl("http://yunming-api.suryani.cn" +"/"+product.imageUrl);
+				oks.show(arg0.getContext());
+
+				break;	
 		}
 		
+	}
+	@Override
+	protected void onStop() {
+		ShareSDK.stopSDK(this);
+		super.onStop();
 	}
 }

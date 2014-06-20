@@ -22,7 +22,7 @@ public class SplashActivity extends Activity {
 		
 		new Handler().postDelayed(new splashLog()
 			
-			, 1000);
+			, 3000);
 		
 
 	}

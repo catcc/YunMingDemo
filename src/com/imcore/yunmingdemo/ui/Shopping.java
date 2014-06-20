@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -37,6 +38,7 @@ public class Shopping extends Activity implements OnClickListener{
 	private String sku;
 	private TextView tvOriginalCost,tvMemberPrice,tvShop,tvShopEditor,tvComplete;
 	private Button btnBuy;
+	private ProgressDialog pg;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -57,7 +59,14 @@ public class Shopping extends Activity implements OnClickListener{
 		tvComplete = (TextView)findViewById(R.id.tv_shop_complete);
 		
 		btnBuy = (Button)findViewById(R.id.btn_shopping_buy);
-		
+		tvShop.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				finish();
+				
+			}
+		});
 		tvShopEditor.setOnClickListener(this);
 		tvComplete.setOnClickListener(this);
 		btnBuy.setOnClickListener(this);
@@ -67,6 +76,8 @@ public class Shopping extends Activity implements OnClickListener{
 		}else{
 			new ShoppingGetTask().execute();
 		}
+		
+		pg.dismiss();
 		
 	}
 
@@ -219,7 +230,14 @@ public class Shopping extends Activity implements OnClickListener{
 			lvShoppingEnd.setAdapter(new ShoppingLvEndAdapter());
 			tvOriginalCost.setText("原价:"+"￥"+shoppingAll.totalAmount);
 			tvMemberPrice.setText("会员价:"+"￥"+shoppingAll.discount);
+			
 			super.onPostExecute(result);
+		}
+		
+		@Override
+		protected void onPreExecute() {
+			pg = ProgressDialog.show(Shopping.this, "芸茗茶叶", "正在加载");
+			super.onPreExecute();
 		}
 		@Override
 		protected Void doInBackground(Void... arg0) {

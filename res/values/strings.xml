@@ -73,5 +73,8 @@
     <string name="tea_info">发表评论</string>
     <string name="title_activity_news_evaluation">NewsEvaluation</string>
     <string name="title_activity_sellers">Sellers</string>
+    <string name="title_activity_map">Map</string>
+    <string name="action_search">搜索</string>
+    <string name="title_activity_search_result">SearchResult</string>
 
 </resources>

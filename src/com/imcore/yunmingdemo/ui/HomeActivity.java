@@ -5,14 +5,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +26,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import com.imcore.yunmingdemo.R;
+import com.imcore.yunmingdemo.SearchResult;
+import com.imcore.yunmingdemo.util.TextUtil;
 
 public class HomeActivity extends ActionBarActivity {
 	
@@ -166,9 +172,31 @@ public class HomeActivity extends ActionBarActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.home, menu);
+		SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu
+				.findItem(R.id.action_home_search));
+		searchView.setSubmitButtonEnabled(true);
+		searchView.setOnQueryTextListener(new OnQueryTextListener() {
+			
+			@Override
+			public boolean onQueryTextSubmit(String text) {
+				Intent intent = new Intent(HomeActivity.this,SearchResult.class);
+				intent.putExtra("search_context", text);
+				startActivity(intent);
+				return true;
+			}
+			
+			@Override
+			public boolean onQueryTextChange(String text) {
+				if (!TextUtil.isEmptyString(text)) {
+					
+				}
+				return true;
+			}
+		});
 		return true;
 	}
+	
+	
 
 }
